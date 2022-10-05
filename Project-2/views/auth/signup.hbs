@@ -1,14 +1,36 @@
-<form action="/auth/signup" method="POST">
-   <label> Username
-      <input type="text" name="username">
+
+<div class="signupPage">
+   <form action="/auth/signup" method="POST">
+   <label> First Name:
+      <input type="text" name="firstName">
    </label>
-   <label> Password
+   <br>
+   <br>
+   <label> Last Name:
+      <input type="text" name="lastName">
+   </label>
+   <br>
+   <br>
+   <label> Email:
+      <input type="text" name="email">
+   </label>
+   <br>
+   <br>
+   <label> Password:
       <input type="password" name="password">
    </label>
-
+   <br>
+   <br>
+   <label>
+      <input type="checkbox" value="true" name="admin">Admin
+   </label>
+   <br>
+   <br>
    <button type="submit">Submit</button>
 </form>
 
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+</div>
+

@@ -10,3 +10,13 @@ a {
 h1 {
   color: 15px;
 }
+
+
+nav {
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.signupPage {
+  padding-top: 1rem;
+}
