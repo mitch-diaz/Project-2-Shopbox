@@ -26,7 +26,7 @@ app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
 app.use(function (req, res, next) {
     // I'm making a template variable called theUser and I am making it equal to the user object in the session
-    res.locals.theUser = req.session.currentlyLoggedIn;
+    res.locals.user = req.session.currentlyLoggedIn;
     next();
   })
 

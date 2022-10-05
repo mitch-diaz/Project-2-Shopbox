@@ -14,6 +14,8 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+
+// ========= USER SIGNUP =========
 router.get("/signup", isLoggedOut, (req, res) => {
   
   res.render("auth/signup");
@@ -93,6 +95,42 @@ router.post("/signup", isLoggedOut, (req, res) => {
   });
 });
 
+// ============================================================
+
+// ============ USER PROFILE =============
+
+router.get('/profile', (req, res, next)=>{
+  User.findById(req.session.isLoggedIn._id)
+  .then((theUser)=>{
+    if(!theUser.admin) {
+      console.log(theUser.admin)
+      res.render('auth/staff-profile')
+      return;
+    } else {
+      console.log(theUser);
+      res.render('auth/admin-profile', {theUser: theUser})
+    }
+  })
+  .catch((error)=>{
+    console.log(error)
+  })
+})
+
+// router.get('/staff-profile', (req, res, next)=>{
+//   User.findById(req.session.isLoggedIn._id)
+//   .then((theStaff)=>{
+//     console.log(theStaff);
+//     res.render('auth/staff-profile', {theStaff: theStaff})
+//   })
+//   .catch((error)=>{
+//     console.log(error)
+//   })
+// })
+
+
+
+
+// ============== LOGIN ================
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
@@ -146,6 +184,8 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
+
+// =========== LOGOUT =================
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
