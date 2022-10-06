@@ -95,47 +95,17 @@ router.post("/signup", isLoggedOut, (req, res) => {
   });
 });
 
-// ============================================================
-
-// ============ USER PROFILE =============
-
-router.get('/profile', (req, res, next)=>{
-  User.findById(req.session.isLoggedIn._id)
-  .then((theUser)=>{
-    if(!theUser.admin) {
-      console.log(theUser.admin)
-      res.render('auth/staff-profile')
-      return;
-    } else {
-      console.log(theUser);
-      res.render('auth/admin-profile', {theUser: theUser})
-    }
-  })
-  .catch((error)=>{
-    console.log(error)
-  })
-})
-
-// router.get('/staff-profile', (req, res, next)=>{
-//   User.findById(req.session.isLoggedIn._id)
-//   .then((theStaff)=>{
-//     console.log(theStaff);
-//     res.render('auth/staff-profile', {theStaff: theStaff})
-//   })
-//   .catch((error)=>{
-//     console.log(error)
-//   })
-// })
-
-
 
 
 // ============== LOGIN ================
+
 router.get("/login", isLoggedOut, (req, res) => {
+  console.log('SESSION =====> ', req.session);
   res.render("auth/login");
 });
 
 router.post("/login", isLoggedOut, (req, res, next) => {
+  console.log('SESSION =====> ', req.session);
   const { email, password } = req.body;
 
   if (!email) {
@@ -162,7 +132,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           .render("auth/login", { errorMessage: "Wrong credentials." });
       }
 
-      // If user is found based on the email, check if the in putted password matches the one saved in the database
+      // If user is found based on the email, check if the inputted password matches the one saved in the database
       bcrypt.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
           return res
@@ -185,6 +155,52 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 
+
+
+// ============ USER PROFILE =============
+
+// router.get('/profile', (req, res, next)=>{
+//   User.findById(req.session.user._id)
+//   .then((user)=>{
+//     console.log('The user =====> ', user);
+//     if (!req.session.user) {
+//       return res.redirect('/auth/staff-profile')
+//     } 
+//     return res.render('auth/admin-profile', {user: user})
+//   })
+//   .catch((error)=>{
+//     console.log(error)
+//   })
+// })
+
+
+
+router.get('/profile', (req, res, next)=>{
+  User.findById(req.session.user._id)
+  .then((user)=>{
+    console.log('The user =====> ', user);
+    res.render('auth/profile', {user: user})
+  })
+  .catch((error)=>{
+    console.log(error)
+  })
+})
+
+
+
+// router.get('/staff-profile', (req, res, next)=>{
+//   User.findById(req.session.isLoggedIn._id)
+//   .then((theStaff)=>{
+//     console.log(theStaff);
+//     res.render('auth/staff-profile', {theStaff: theStaff})
+//   })
+//   .catch((error)=>{
+//     console.log(error)
+//   })
+// })
+
+
+
 // =========== LOGOUT =================
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
@@ -193,9 +209,10 @@ router.get("/logout", isLoggedIn, (req, res) => {
         .status(500)
         .render("auth/logout", { errorMessage: err.message });
     }
-    
     res.redirect("/");
   });
 });
+
+
 
 module.exports = router;
