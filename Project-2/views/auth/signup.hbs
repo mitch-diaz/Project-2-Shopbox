@@ -1,32 +1,40 @@
+<h1>Create Account</h1>
 
 <div class="signupPage">
    <form action="/auth/signup" method="POST">
-   <label> First Name:
+
+   <label> First Name: <br>
       <input type="text" name="firstName">
    </label>
-   <br>
-   <br>
-   <label> Last Name:
+
+   <br><br>
+
+   <label> Last Name: <br>
       <input type="text" name="lastName">
    </label>
-   <br>
-   <br>
-   <label> Email:
+
+   <br><br>
+
+   <label> Email: <br>
       <input type="text" name="email">
    </label>
-   <br>
-   <br>
-   <label> Password:
+
+   <br><br>
+
+   <label> Password: <br>
       <input type="password" name="password">
    </label>
-   <br>
-   <br>
+
+   <br><br>
+
    <label>
-      <input type="checkbox" value="true" name="admin">Admin
+      <input type="checkbox" value="true" name="admin">Admin <br>
    </label>
-   <br>
-   <br>
+
+   <br><br>
+
    <button type="submit">Submit</button>
+
 </form>
 
 {{#if errorMessage}}
