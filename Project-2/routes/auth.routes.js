@@ -17,7 +17,6 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // ========= USER SIGNUP =========
 router.get("/signup", isLoggedOut, (req, res) => {
-  
   res.render("auth/signup");
 });
 
@@ -220,12 +219,10 @@ router.get('/change-password', (req, res, next)=>{
   res.render("auth/change-password", {currentUser: req.session.user});
 })
 
-
 router.post('/change-password', (req, res, next)=>{
-
   if(req.body.newpass !== req.body.confirmnewpass){
     res.redirect("/auth/profile")
-    // need to show an error message here but cant yet
+    // error message should follow here
   }
 
   User.findById(req.session.user._id)
@@ -236,13 +233,11 @@ router.post('/change-password', (req, res, next)=>{
       .genSalt(saltRounds)
       .then(salt => bcryptjs.hash(req.body.newpass, salt))
       .then(hashedPassword => {
-        
         User.findByIdAndUpdate(req.session.user._id, {
           password: hashedPassword
         })
         .then(()=>{
           res.redirect('/auth/profile');
-
         })
       })
         .catch((err)=>{

@@ -48,6 +48,7 @@ module.exports = (app) => {
   // Sets the view engine to handlebars
   app.set("view engine", "hbs");
 
+
   
   // Handles access to the public folder
   app.use(express.static(path.join(__dirname, "..", "public")));
@@ -60,9 +61,12 @@ module.exports = (app) => {
   // ℹ️ Middleware that adds a "req.session" information and later to check that you are who you say you are 😅
   app.use(
     session({
-      secret: process.env.SESSION_SECRET || "super hyper secret key",
-      resave: false,
+      secret: process.env.SESSION_SECRET,
+      resave: true,
       saveUninitialized: false,
+      cookie: {
+        maxAge: 600000
+      },
       store: MongoStore.create({
         mongoUrl: MONGO_URI,
       }),
@@ -70,8 +74,26 @@ module.exports = (app) => {
   );
 };
 
+
+// =========> ORIGINAL SESSION CODE THAT CAME WITH IRON GENERATOR ==========
+// app.use(
+//     session({
+//       secret: process.env.SESSION_SECRET || "super hyper secret key",
+//       resave: false,
+//       saveUninitialized: false,
+//       store: MongoStore.create({
+//         mongoUrl: MONGO_URI,
+//       }),
+//     })
+//   );
+// };
+// =========================================================================
+
+
+// ============> WHAT IS THIS? =========================
 // app.configure(function() {
 //   app.use(express.cookieParser('keyboard cat'));
 //   app.use(express.session({ cookie: { maxAge: 60000 }}));
 //   app.use(flash());
 // });
+// =====================================================

@@ -14,7 +14,7 @@ const express = require("express");
 const hbs = require("hbs");
 
 const app = express();
-
+const bodyParser = require('body-parser');
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
@@ -24,32 +24,24 @@ const projectName = "Project-2";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
-// app.use(function (req, res, next) {
-//     // I'm making a template variable called theUser and I am making it equal to the user object in the session
-//     res.locals.theUser = req.session.currentlyLoggedIn;
-//     next();
-//   })
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.user
   next();
 })
 
+
 // 👇 Start handling routes here
-// const index = require("./routes/index.routes");
-// app.use("/", index);
+const index = require("./routes/index.routes");
+app.use("/", index);
 
-// const authRoutes = require("./routes/auth.routes");
-// app.use("/auth", authRoutes);
+const authRoutes = require("./routes/auth.routes");
+app.use("/auth", authRoutes);
 
-app.use('/', require('./routes/auth.routes'))
-app.use('/', require('./routes/book.routes'))
 app.use('/', require('./routes/customer.routes'))
-app.use('/', require('./routes/index.routes'))
-app.use('/', require('./routes/movie.routes'))
 app.use('/', require('./routes/purchase.routes'))
-
-
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
