@@ -214,5 +214,44 @@ router.get("/logout", isLoggedIn, (req, res) => {
 });
 
 
+// ============= CHANGE / ADD NEW PASSWORD ================
+
+router.get('/change-password', (req, res, next)=>{
+  res.render("auth/change-password", {currentUser: req.session.user});
+})
+
+
+router.post('/change-password', (req, res, next)=>{
+
+  if(req.body.newpass !== req.body.confirmnewpass){
+    res.redirect("/auth/profile")
+    // need to show an error message here but cant yet
+  }
+
+  User.findById(req.session.user._id)
+  .then(resultFromDB => {
+     if (bcryptjs.compareSync(req.body.oldpass, resultFromDB.password)) {
+      const saltRounds = 10;
+      bcryptjs
+      .genSalt(saltRounds)
+      .then(salt => bcryptjs.hash(req.body.newpass, salt))
+      .then(hashedPassword => {
+        
+        User.findByIdAndUpdate(req.session.user._id, {
+          password: hashedPassword
+        })
+        .then(()=>{
+          res.redirect('/auth/profile');
+
+        })
+      })
+        .catch((err)=>{
+          next(err);
+        })
+    }
+  })
+})
+
+
 
 module.exports = router;

@@ -14,14 +14,15 @@
         <a href="/">Home</a>
         <a href="/auth/signup">Signup</a>
 
-        {{!-- {{#unless user}} --}}
+        {{#unless currentUser}}
           <a href="/auth/login">Login</a>
-        {{!-- {{/unless}} --}}
+        {{/unless}}
 
-        {{!-- {{#if user}} --}}
+        {{#if currentUser}}
           <a href="/auth/logout">Logout</a>
           <a href="/auth/profile">Profile</a>
-        {{!-- {{/if}} --}}
+          <a href="/auth/change-password">Change Password</a>
+        {{/if}}
     </nav>
 
     <br>
