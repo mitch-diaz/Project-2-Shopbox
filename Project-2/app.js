@@ -37,6 +37,9 @@ app.use("/", index);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
+// const bookRoutes = );
+app.use("/", require("./routes/book.routes"))
+app.use("/", require("./routes/movie.routes"))
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
