@@ -1,5 +1,5 @@
-const { Schema, model } = mongoose;
 const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
 
 const customerSchema = new Schema({
@@ -7,10 +7,10 @@ const customerSchema = new Schema({
     lastName: String,
     email: String,
     address: String,
-    apartmentNumber: Number,
-    zip: Number,
+    apartmentNumber: String,
     city: String,
     state: String,
+    zip: Number,
     purchases: {type: [
         {
             type: Schema.Types.ObjectId, 
