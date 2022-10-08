@@ -9,6 +9,7 @@ const movieSchema = new Schema(
         genre: String,
         price: String,
         inventory: String,
+        rating: String,
         relatedBooks: {
             type: Schema.Types.ObjectId,
             ref: 'Book'

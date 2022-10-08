@@ -4,5 +4,6 @@
 <button><a href="/books/createBook">Create Book</a></button>
 
 {{#each book}}
-<h2>Title: {{this.title}}</h2>
+<h2>Title: <br> {{this.title}}</h2>
+<button><a href="/books/details/{{this._id}}">Details</a></button>
 {{/each}}

@@ -1,0 +1,42 @@
+<h1>Edit the Book</h1>
+
+
+<form action="/books/edit/{{id}}" method="POST">
+   <label> Title: <br>
+      <input type="text" name="title" placeholder="{{this.title}}">
+   </label>
+
+   <br><br>
+
+   <label> Author: <br>
+      <input type="text" name="author" placeholder="{{this.author}}">
+   </label>
+
+   <br><br>
+
+   <label> Number of Pages: <br>
+      <input type="text" name="pages" placeholder="{{this.pages}}">
+   </label>
+
+   <br><br>
+
+   <label> Price: <br>
+      <input type="text" name="price" placeholder="{{this.price}}">
+   </label>
+
+   <br><br>
+
+   <label> Genre: <br>
+      <input type="text" name="genre" placeholder="{{this.genre}}">
+   </label>
+
+   <br><br>
+
+   <label> Inventory: <br>
+      <input type="text" name="inventory" placeholder="{{this.inventory}}">
+   </label>
+
+   <br><br>
+
+   <button>Update</button>
+</form>

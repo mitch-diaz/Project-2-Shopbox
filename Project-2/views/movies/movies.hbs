@@ -3,3 +3,9 @@
 
 {{!-- Make this only availble for employees  --}}
 <button><a href="/movies/createMovie">Create a Movie</a></button>
+
+{{#each movie}}
+<h2>Title: <br> {{this.title}}</h2>
+<button><a href="/movies/details/{{id}}">Details</a></button>
+
+{{/each}}
