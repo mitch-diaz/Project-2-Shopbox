@@ -1,4 +1,5 @@
 const Customer = require("../models/Customer.model");
+const Purchase = require("../models/Purchase.model");
 const router = require("express").Router();
 const mongoose = require("mongoose");
 
@@ -93,7 +94,7 @@ router.post('/customers/:id', (req, res, next)=>{
 })
 
 
-// =========== DELETE CUSTOMER ============
+// =========== VIEW A CUSTOMER'S PURCHASE HISTORY ============
 
 
 
