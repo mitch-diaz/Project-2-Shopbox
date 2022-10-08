@@ -3,9 +3,21 @@ const mongoose = require('mongoose');
 
 
 const customerSchema = new Schema({
-    name: String,
-    occupation: String,
-    catchPhrase: String
+    firstName: String,
+    lastName: String,
+    email: String,
+    address: String,
+    apartmentNumber: Number,
+    zip: Number,
+    city: String,
+    state: String,
+    purchases: {type: [
+        {
+            type: Schema.Types.ObjectId, 
+            ref: 'Purchase'
+        }
+      ]
+    }
 }, { 
     timestamps: true
 })
