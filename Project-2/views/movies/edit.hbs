@@ -1,0 +1,49 @@
+<h1>Edit the Movie</h1>
+
+
+<form action="/movies/edit/{{id}}" method="POST">
+   <label> Title: <br>
+      <input type="text" name="title" placeholder="{{this.title}}">
+   </label>
+
+   <br><br>
+
+   <label> Director: <br>
+      <input type="text" name="director" placeholder="{{this.director}}">
+   </label>
+
+   <br><br>
+
+   <label> Runtime: <br>
+      <input type="text" name="runtime" placeholder="{{this.runtime}}">
+   </label>
+
+   <br><br>
+
+   <label> Price: <br>
+      <input type="text" name="price" placeholder="{{this.price}}">
+   </label>
+
+   <br><br>
+
+   <label> Genre: <br>
+      <input type="text" name="genre" placeholder="{{this.genre}}">
+   </label>
+
+   <br><br>
+
+   <label> Rating: <br>
+      <input type="text" name="rating" placeholder="{{this.rating}}">
+   </label>
+
+   <br><br>
+   
+   <label> Inventory: <br>
+      <input type="text" name="inventory" placeholder="{{this.inventory}}">
+   </label>
+
+   <br><br>
+
+
+   <button>Update</button>
+</form>

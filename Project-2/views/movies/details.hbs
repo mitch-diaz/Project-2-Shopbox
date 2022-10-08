@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<hr>
+    <h3>Director: {{director}}</h3>
+    <h4>Runtime: {{runtime}}</h4>
+    <h4>Genre: {{genre}}</h4>
+    <h4>Price: {{price}}</h4>
+    <h4>Rating: {{rating}}</h4>
+    
+    
+    
+    <hr>
+    <button><a href="/movies/edit/{{_id}}">Edit This Movie</a></button>
+    <br><br>
+     <form action="/movies/delete/{{_id}}" method="POST">
+        <button>Delete</button>
+    </form>
