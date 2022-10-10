@@ -1,14 +1,8 @@
+const User = require("../models/User.model");
 const router = require("express").Router();
-
-// ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-
-// How many rounds should bcrypt run the salt (default [10 - 12 rounds])
 const saltRounds = 10;
-
-// Require the User model in order to interact with the database
-const User = require("../models/User.model");
 
 // Require necessary (isLoggedOut and isLoggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -16,17 +10,17 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 // ========= USER SIGNUP =========
+
 router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { email, password, firstName, lastName, admin } = req.body;
+  const { firstName, lastName, email, password, storeType, role } = req.body;
   
-  
-  if (!email) {
+  if (!firstName || !lastName || !email || !password || !storeType || !role) {
     return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your email.",
+      errorMessage: "Please complete all fields.",
     });
   }
 
@@ -68,7 +62,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
           lastName,
           email,
           password: hashedPassword,
-          admin,
+          storeType,
+          role,
         });
       })
       .then((user) => {
@@ -93,7 +88,6 @@ router.post("/signup", isLoggedOut, (req, res) => {
       });
   });
 });
-
 
 
 // ============== LOGIN ================
@@ -154,25 +148,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 
-
-
 // ============ USER PROFILE =============
-
-// router.get('/profile', (req, res, next)=>{
-//   User.findById(req.session.user._id)
-//   .then((user)=>{
-//     console.log('The user =====> ', user);
-//     if (!req.session.user) {
-//       return res.redirect('/auth/staff-profile')
-//     } 
-//     return res.render('auth/admin-profile', {user: user})
-//   })
-//   .catch((error)=>{
-//     console.log(error)
-//   })
-// })
-
-
 
 router.get('/profile', (req, res, next)=>{
   User.findById(req.session.user._id)
@@ -185,22 +161,39 @@ router.get('/profile', (req, res, next)=>{
   })
 })
 
+// =========== UPDATE USER PROFILE DETAILS ============
+
+router.get('/update-profile/:id', (req, res, next) => {
+  User.findById(req.session.currentUser._id)
+  .then((user) => {
+      console.log('The user ===> ', user);
+      res.render('auth/update-profile', user)
+  })
+})
+
+router.post('/auth/update-profile/:id', (req, res, next)=>{
+  const userToUpdate = {
+    email: req.body.email,
+    role: req.body.role,
+    storeType: req.body.businessType,
+    address: req.body.address,
+    unitNumber: req.body.unitNumber,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip
+  }
+
+  User.findByIdAndUpdate(req.body.currentUser, userToUpdate)
+  .then(theUpdatedUser => {
+      console.log('The updated user email ===> ', theUpdatedUser);
+      res.redirect(`/auth/${theUpdatedUser.id}`);
+  }).catch(error => {
+      console.log({error});
+  })
+})
 
 
-// router.get('/staff-profile', (req, res, next)=>{
-//   User.findById(req.session.isLoggedIn._id)
-//   .then((theStaff)=>{
-//     console.log(theStaff);
-//     res.render('auth/staff-profile', {theStaff: theStaff})
-//   })
-//   .catch((error)=>{
-//     console.log(error)
-//   })
-// })
-
-
-
-// =========== LOGOUT =================
+// =============== LOGOUT =================
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -214,7 +207,6 @@ router.get("/logout", isLoggedIn, (req, res) => {
 
 
 // ======== SHELVED FEATURE - CHANGE / ADD NEW PASSWORD ===========
-
 // router.get('/change-password', (req, res, next)=>{
 //   res.render("auth/change-password", {currentUser: req.session.user});
 // })
@@ -246,7 +238,22 @@ router.get("/logout", isLoggedIn, (req, res) => {
 //     }
 //   })
 // })
+// =======================================================
 
-
+// ======== SHELVED: DISCERN BETWEEN ADMIN AND STAFF USER ==========
+// router.get('/profile', (req, res, next)=>{
+//   User.findById(req.session.user._id)
+//   .then((user)=>{
+//     console.log('The user =====> ', user);
+//     if (!req.session.user) {
+//       return res.redirect('/auth/staff-profile')
+//     } 
+//     return res.render('auth/admin-profile', {user: user})
+//   })
+//   .catch((error)=>{
+//     console.log(error)
+//   })
+// })
+// =======================================================
 
 module.exports = router;

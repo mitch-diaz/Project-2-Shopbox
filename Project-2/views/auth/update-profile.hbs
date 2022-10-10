@@ -1,0 +1,57 @@
+<h1>Update Profile</h1>
+
+<div class="updateProfileForm">
+    <form action="/update-profile/{{id}}" method="POST">
+
+        <label> Enter new email address: <br>
+            <input type="text" name="email" value="{{user.email}}" >
+        </label>
+
+        <br><br>
+
+        <label for="storeType">How do you sell?</label>
+        <select name="storeType" id="storeType">
+            <option value="" disabled="disabled" selected="selected">--Please choose an option--</option>
+            <option value="ONLINE STORE">Online store only</option>
+            <option value="PHYSICAL STORE">Physical store only</option>
+            <option value="ONLINE AND PHYSICAL STORE">I sell from a physical and online store</option>
+        </select>
+
+        <br><br>
+
+        <label> Address: <br>
+            <input type="text" name="address" value="{{user.address}}">
+        </label>
+
+        <br><br>
+
+        <label> Unit or Suite#: <br>
+            <input type="text" name="unitNumber" value="{{user.unitNumber}}">
+        </label>
+
+        <br><br>
+
+        <label> City: <br>
+            <input type="text" name="city" value="{{user.city}}">
+        </label>
+
+        <br><br>
+
+        <label> State: <br>
+            <input type="text" name="state" value="{{user.state}}">
+        </label>
+
+        <br><br>
+
+        <label> Zip: <br>
+            <input type="text" name="zip" value="{{user.zip}}">
+        </label>
+
+        <br><br>
+        
+        <button type="submit">Save Changes</button>
+
+    </form>
+</div>
+
+

@@ -1,11 +1,19 @@
+<br>
 <h1>Profile</h1>
+{{#if currentUser}}
+<h3>Account Details for: {{user.firstName}} {{user.lastName}}</h3>
+<p><b>Your email:</b> {{user.email}} </p>
+<p><b>Access level:</b> {{user.role}} </p>
+<p><b>Store type:</b> {{user.storeType}} </p>
+<p>
+    <b>Address:</b> <br>
+    {{user.address}}, Suite#: {{user.unitNumber}} <br>
+    {{user.city}}, {{user.state}}, {{user.zip}} 
+</p>
+<br>
 
-<h3>{{user.firstName}} {{user.lastName}}</h3>
-<h3>Your email: {{user.email}} </h3>
-<h3>Admin? {{user.admin}} </h3>
+<button>
+    <a href="/auth/update-profile/{{_id}}">Update your profile</a>
+</button>
 
-
-{{!-- THIS FEATURE HAS BEEN SHELVED FOR NOW --}}
-{{!-- <h3>  --}}
-    {{!-- <a href="/auth/change-password">Change Password</a>
-</h3> --}}
+{{/if}}

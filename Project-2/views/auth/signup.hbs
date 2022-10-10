@@ -27,9 +27,26 @@
 
    <br><br>
 
-   <label>
+   <label for="storeType">How do you sell?</label> <br>
+   <select name="storeType" id="storeType">
+      <option value="" disabled="disabled" selected="selected">--Please choose an option--</option>
+      <option value="ONLINE STORE">Online store only</option>
+      <option value="PHYSICAL STORE">Physical store only</option>
+      <option value="ONLINE AND PHYSICAL STORE">I sell from a physical and online store</option>
+   </select>
+
+   <br><br>
+
+   <label for="role">Assign access level:</label> <br>
+   <select name="role" id="role">
+      <option value="" disabled="disabled" selected="selected">--Please choose an option--</option>
+      <option value="ADMIN">Admin</option>
+      <option value="STAFF">Staff</option>
+   </select>
+
+   {{!-- <label>
       <input type="checkbox" value="true" name="admin">Admin <br>
-   </label>
+   </label> --}}
 
    <br><br>
 
@@ -40,5 +57,6 @@
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+
 </div>
 
