@@ -1,0 +1,70 @@
+<h1>New Invoice</h1>
+
+<div class="newInvoice">
+    <form action="/purchases/create" method="POST">
+
+        <label for="customer">Customer:</label><br>
+        <select name="customer" multiple>
+            {{#each customer}}
+                <option value={{firstName}} {{lastName}} ● {{email}}></option>
+            {{/each}}
+        </select>
+
+        <br><br>
+
+        <label> Invoice Title: <br>
+            <input type="text" name="invoiceTitle" placeholder="Optional">
+        </label>
+
+        <br><br>
+
+        <label> Invoice ID: <br>
+            <input type="text" name="invoiceId" >
+        </label>
+
+        <br><br>
+
+        <label for="invoiceDate">Date: <br>
+            <input type="date" name="invoiceDate" >
+        </label>
+
+        <br><br>
+
+        {{!-- ========================= --}}
+
+
+        <label> Address: <br>
+            <input type="text" name="address" value="{{user.address}}">
+        </label>
+
+        <br><br>
+
+        <label> Unit or Suite#: <br>
+            <input type="text" name="unitNumber" value="{{user.unitNumber}}">
+        </label>
+
+        <br><br>
+
+        <label> City: <br>
+            <input type="text" name="city" value="{{user.city}}">
+        </label>
+
+        <br><br>
+
+        <label> State: <br>
+            <input type="text" name="state" value="{{user.state}}">
+        </label>
+
+        <br><br>
+
+        <label> Zip: <br>
+            <input type="text" name="zip" value="{{user.zip}}">
+        </label>
+
+        <br><br>
+        
+        <button type="submit">Save Changes</button>
+
+    </form>
+</div>
+

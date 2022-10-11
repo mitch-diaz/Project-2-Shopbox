@@ -164,14 +164,14 @@ router.get('/profile', (req, res, next)=>{
 // =========== UPDATE USER PROFILE DETAILS ============
 
 router.get('/update-profile/:id', (req, res, next) => {
-  User.findById(req.session.currentUser._id)
+  User.findById(req.session.user.id)
   .then((user) => {
       console.log('The user ===> ', user);
       res.render('auth/update-profile', user)
   })
 })
 
-router.post('/auth/update-profile/:id', (req, res, next)=>{
+router.post('/update-profile/:id', (req, res, next)=>{
   const userToUpdate = {
     email: req.body.email,
     role: req.body.role,
@@ -183,10 +183,10 @@ router.post('/auth/update-profile/:id', (req, res, next)=>{
     zip: req.body.zip
   }
 
-  User.findByIdAndUpdate(req.body.currentUser, userToUpdate)
+  User.findByIdAndUpdate(req.params.user.id, userToUpdate)
   .then(theUpdatedUser => {
       console.log('The updated user email ===> ', theUpdatedUser);
-      res.redirect(`/auth/${theUpdatedUser.id}`);
+      res.redirect(`/update-profile/${theUpdatedUser.id}`);
   }).catch(error => {
       console.log({error});
   })
