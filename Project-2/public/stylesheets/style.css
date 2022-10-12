@@ -1,10 +1,16 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #83a4d4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 a {
-  color: #00b7ff;
+  text-decoration: none;
+  color: black;
 }
 
 h1 {
@@ -13,10 +19,57 @@ h1 {
 
 
 nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
   padding: 1rem;
   border: 1px solid black;
+  border-radius: 25px;
 }
 
 .signupPage {
   padding-top: 1rem;
+}
+
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginPage input {
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 10px;
+  width: 12rem;
+}
+
+/* .loginPage form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.loginPage button {
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 10px;
+  width: 8rem;
+
+}
+
+
+.loginItems {
+  display: flex;
+  
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.loginItems a{
+  display: flex;
+  padding-left: 15px;
+  
 }

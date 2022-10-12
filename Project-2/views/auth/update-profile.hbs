@@ -1,7 +1,7 @@
 <h1>Update Profile</h1>
 
 <div class="updateProfileForm">
-    <form action="/auth/update-profile/{{id}}" method="POST">
+    <form action="/auth/update-profile/{{user._id}}" method="POST">
 
         <label for="email"> Enter new email address: <br>
             <input type="text" name="email" value="{{user.email}}" >

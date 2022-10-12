@@ -1,14 +1,17 @@
+
+<div class="loginPage">
+
 <h1>Login</h1>
 <br>
 <form action="/auth/login" method="POST">
-   <label> Email <br>
-      <input type="text" name="email">
+   <label>  <br>
+      <input type="text" name="email" placeholder="Email">
    </label>
 
    <br><br>
 
-   <label> Password <br>
-      <input type="password" name="password">
+   <label>  <br>
+      <input type="password" name="password" placeholder="Password">
    </label>
 
    <br><br>
@@ -19,3 +22,5 @@
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+
+</div>

@@ -11,12 +11,15 @@
   <body>
 
     <nav>
-        <a href="/">Home</a>
+      <div class="loginItems">
         <a href="/auth/signup">Signup</a>
 
         {{#unless currentUser}}
           <a href="/auth/login">Login</a>
         {{/unless}}
+
+      </div>
+        <a href="/">Home</a>
 
         {{#if currentUser}}
           <a href="/auth/logout">Logout</a>
