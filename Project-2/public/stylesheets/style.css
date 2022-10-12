@@ -24,7 +24,7 @@ nav {
   flex-direction: row-reverse;
   padding: 1rem;
   border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 .signupPage {
