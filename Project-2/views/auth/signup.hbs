@@ -1,10 +1,15 @@
-<h1>Create Account</h1>
+
 
 <div class="signupPage">
+
+<h1>Create Account</h1>
+
+   <div class="signupContent">
+
    <form action="/auth/signup" method="POST">
 
    <label> First Name: <br>
-      <input type="text" name="firstName">
+      <input type="text" name="firstName" placeholder="First Name">
    </label>
 
    <br><br>
@@ -57,6 +62,8 @@
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+
+   </div>
 
 </div>
 

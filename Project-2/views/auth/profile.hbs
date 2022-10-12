@@ -1,10 +1,14 @@
+<div class="profilePage">
+
+<div class="profileContent">
+
 <br>
 <h1>Profile</h1>
 {{#if currentUser}}
-<h3>Account Details for: {{user.firstName}} {{user.lastName}}</h3>
-<p><b>Your email:</b> {{user.email}} </p>
-<p><b>Access level:</b> {{user.role}} </p>
-<p><b>Store type:</b> {{user.storeType}} </p>
+<h3>Account Details for: <br> <br>{{user.firstName}} {{user.lastName}}</h3>
+<p><b>Your email:</b> <br> {{user.email}} </p>
+<p><b>Access level:</b> <br> {{user.role}} </p>
+<p><b>Store type:</b> <br> {{user.storeType}} </p>
 <p>
     <b>Address:</b> <br>
     {{user.address}}, Suite#: {{user.unitNumber}} <br>
@@ -17,3 +21,7 @@
 </button>
 
 {{/if}}
+
+</div>
+
+</div>

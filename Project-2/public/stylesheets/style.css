@@ -29,7 +29,35 @@ nav {
 }
 
 .signupPage {
-  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.signupPage h1{
+  color: black;
+}
+
+.signupContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.signupContent input{
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 10px;
+  width: 12rem;
 }
 
 .loginPage {
@@ -77,4 +105,21 @@ nav {
 
 .navigationItems a{
   padding-left: 10px;
+}
+
+.profilePage {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.profileContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
 }
