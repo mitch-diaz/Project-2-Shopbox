@@ -17,17 +17,22 @@
         {{#unless currentUser}}
           <a href="/auth/login">Login</a>
         {{/unless}}
+          <a href="/auth/logout">Logout</a>
+          <a href="/auth/profile">Profile</a>
 
       </div>
+
+      <div class="navigationItems">
         <a href="/">Home</a>
 
         {{#if currentUser}}
-          <a href="/auth/logout">Logout</a>
-          <a href="/auth/profile">Profile</a>
           <a href="/customers">Customers</a>
           <a href="/books">Books</a>
           <a href="/movies">Movies</a>
         {{/if}}
+
+
+      </div>
     </nav>
 
     <br>
