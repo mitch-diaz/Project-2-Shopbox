@@ -9,9 +9,9 @@ const purchaseSchema = new Schema({
     invoiceStatus: {
         type: String, 
         enum: ['OPEN', 'CLOSED', 'CANCELLED'],
-        default: 'Credit or debit card',
+        required: true,
       },
-      paymentMethod: {
+    paymentMethod: {
         type: String, 
         enum: ['Credit or debit card', 'Gift card', 'Cash', 'Mobile wallet'],
         default: 'Credit or debit card',
