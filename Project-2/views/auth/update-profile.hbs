@@ -4,14 +4,14 @@
     <form action="/auth/update-profile/{{user._id}}" method="POST">
 
         <label for="email"> Enter new email address: <br>
-            <input type="text" name="email" value="{{user.email}}" >
+            <input type="text" name="email" value="{{user.email}}">
         </label>
 
         <br><br>
 
-        <label for="storeType">How do you sell?</label><br>
+        <label for="storeType">How do you sell? (current Selection -- {{user.storeType}})</label><br>
         <select name="storeType" id="storeType">
-            <option value="" disabled="disabled" selected="selected">--Please choose an option--</option>
+            <option value="true" selected>{{user.storeType}}</option>
             <option value="ONLINE STORE">Online store only</option>
             <option value="PHYSICAL STORE">Physical store only</option>
             <option value="ONLINE AND PHYSICAL STORE">I sell from a physical and online store</option>
