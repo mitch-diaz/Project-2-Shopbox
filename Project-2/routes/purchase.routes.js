@@ -2,6 +2,7 @@ const Purchase = require("../models/Purchase.model");
 const Customer = require("../models/Customer.model");
 const Book = require("../models/Book.model");
 const Movie = require("../models/Movie.model");
+const { populate } = require("../models/Purchase.model");
 
 const router = require("express").Router();
 
@@ -14,18 +15,18 @@ router.get('/purchases/create', (req, res, next) => {
 router.post('/purchases/create', (req, res ,next) => {
     console.log(req.body);
     const invoiceToCreate = {
-        invoiceTitle: req.body.invoiceTitle,
         invoiceId: req.body.invoiceId,
         invoiceDate: req.body.invoiceDate,
-        invoiceStatus: req.body.invoiceStatus,
         paymentMethod: req.body.paymentMethod,
-        customer: req.body.customer,
-        items: req.body.items,
+        customers: req.body.customers,
+        books: req.body.books,
+        movies: req.body.movies,
+        purchaseTotal: req.body.purchaseTotal,
     }
 
     Purchase.create(invoiceToCreate)
     .then(newlyCreatedInvoice => {
-        res.redirect('/purchases/invoice-history', {newlyCreatedInvoice});
+        res.redirect('/purchases/create', {newlyCreatedInvoice});
     }).catch(err => {
         res.redirect('/purchases/create');
     })
@@ -34,17 +35,45 @@ router.post('/purchases/create', (req, res ,next) => {
 
 // =========== READ LIST OF INVOICES ============
 
-router.get('/invoice-history', (req, res, next) => {
+router.get('/purchases', (req, res, next) => {
     Purchase.find()
     .then((invoicesFromDb) => {
         console.log('Invoices from DB ===>' , {invoicesFromDb});
         invoiceData = {purchases: invoicesFromDb}
-        res.render('purchases/invoice-history', invoiceData);
+        res.render('purchases/purchases', invoiceData);
     })
     .catch(error => {
         console.log({error});
     })
 })
+
+// ============ READ SPECIFIC PURCHASE DETAILS ============
+
+router.get('/purchases/:purchaseId', (req, res, next) => {
+    console.log('params ===> ', {params: req.params.purchaseId});
+
+    Purchase.findById(req.params.purchaseId)
+    .populate('books')
+    .populate('movies')
+    .populate('customers')
+    .then(purchasesFromDb => {
+        console.log('The clicked on purchase: ', purchasesFromDb);
+        res.render('purchases/purchase-details', purchasesFromDb);
+    })
+    .catch(error => {
+        console.log({error});
+    })
+})
+
+
+// =========== DELETE PURCHASE ============
+
+router.post('/purchases/delete/:purchaseId', (req, res, next) => {
+  
+    Purchase.findByIdAndDelete(req.params.purchaseId)
+    .then(() => {res.redirect('/purchases')})
+    .catch(err => console.log(err));
+});
 
 
 

@@ -51,7 +51,7 @@ router.get('/customers/:customerId', (req, res, next) => {
     console.log('params: req.params.customerId ===> ', {params: req.params.customerId});
 
     Customer.findById(req.params.customerId)
-    // .populate('purchases') ====> come back to this later when purchase model is complete
+    .populate('purchases')
     .then(customersFromDb => {
         console.log('The clicked on customer: ', customersFromDb);
         res.render('customers/customer-details', customersFromDb);
@@ -94,8 +94,14 @@ router.post('/customers/:id', (req, res, next)=>{
 })
 
 
-// =========== VIEW A CUSTOMER'S PURCHASE HISTORY ============
+// =========== DELETE CUSTOMER ============
 
+router.post('/customers/delete/:customerId', (req, res, next) => {
+  
+    Customer.findByIdAndDelete(req.params.customerId)
+    .then(() => {res.redirect('/customers')})
+    .catch(err => console.log(err));
+});
 
 
 module.exports = router;

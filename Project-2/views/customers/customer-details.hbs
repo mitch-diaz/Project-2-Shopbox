@@ -2,7 +2,7 @@
 <h2>Customer Details</h2>
 {{#if currentUser}}
 <p><b>Name:</b> {{firstName}} {{lastName}} </p>
-
+{{!-- <p><b>See purchase history:</b>  </p> --}}
 <p><b>Email:</b> {{email}} </p>
 
 <p>
@@ -11,8 +11,16 @@
     {{city}}, {{state}}, {{zip}} 
 </p>
 
+<form action="/customers/delete/{{_id}}" method="POST">
+    <button>Delete this customer</button>
+</form>
 
-<a href="/customers/{{_id}}/update-customer">Update customer info</a>
 <br><br>
-<a href="/customers">Back to customers list</a>
+
+<button> <a href="/customers/{{_id}}/update-customer">Update customer info</a> </button>
+
+<br><br>
+
+<button> <a href="/customers">Back to customers list</a> </button>
+
 {{/if}}
