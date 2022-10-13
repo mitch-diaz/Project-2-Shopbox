@@ -1,5 +1,6 @@
 <h1>Update Customer Information</h1>
 
+{{#if currentUser}}
 
 <form action="/customers/{{id}}" method="POST">
    <label> First Name: <br>
@@ -52,3 +53,5 @@
 
    <button type="submit">Update Customer Info</button>
 </form>
+
+{{/if}}

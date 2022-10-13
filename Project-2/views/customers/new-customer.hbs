@@ -1,5 +1,6 @@
 <h1>Add A New Customer</h1>
 
+{{#if currentUser}}
 
 <form action="/customers/create" method="POST">
    <label> First Name: <br>
@@ -52,3 +53,5 @@
 
    <button type="submit">Create</button>
 </form>
+
+{{/if}}

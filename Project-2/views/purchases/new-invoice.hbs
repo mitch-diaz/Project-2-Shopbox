@@ -1,5 +1,7 @@
 <h1>New Invoice</h1>
 
+{{#if currentUser}}
+
 <div class="newInvoice">
     <form action="/purchases/create" method="POST">
 
@@ -88,3 +90,4 @@
     </form>
 </div>
 
+{{/if}}
