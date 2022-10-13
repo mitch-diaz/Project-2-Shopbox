@@ -1,0 +1,26 @@
+<br><br>
+<h1>Purchase Details for {{_id}} </h1>
+
+{{#if currentUser}}
+
+<hr>
+
+<br>
+    <div class="purchaseBox">
+        <p> <b>Purchase ID:</b> {{_id}} </p>
+        <p> <b>Invoice#:</b> {{invoiceId}}</p>
+        <p> <b>Customer:</b>  {{customers.firstName}} {{customers.lastName}} </p>
+        <p> <b>Purchase Date:</b> {{invoiceDate}}</p>
+        <p> <b>Books purchased:</b> {{books.title}} - {{books.price}} </p> 
+        <p> <b>Movies purchased:</b> {{movies.title}} - {{movies.price}} </p>
+        <p> <b>Total:</b> {{purchaseTotal}}</p>
+    </div>
+
+    <br><br>
+
+    <form action="/purchases/delete/{{_id}}" method="POST">
+        <button>Delete purchase</button>
+    </form>
+
+    <button> <a href="/purchases">Back to purchases</a> </button>
+{{/if}}

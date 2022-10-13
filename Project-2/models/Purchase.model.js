@@ -3,34 +3,26 @@ const { Schema, model } = mongoose;
 
 
 const purchaseSchema = new Schema({
-    invoiceTitle: String,
     invoiceId: String,
     invoiceDate: Date,
-    invoiceStatus: {
-        type: String, 
-        enum: ['OPEN', 'CLOSED', 'CANCELLED'],
-        required: true,
-      },
     paymentMethod: {
         type: String, 
         enum: ['Credit or debit card', 'Gift card', 'Cash', 'Mobile wallet'],
         default: 'Credit or debit card',
       },
-    customer: {
+    customers: {
         type: Schema.Types.ObjectId, 
         ref: 'Customer'
     },
-    items: { type: [
-        {
-            type: Schema.Types.ObjectId, 
-            ref: 'Book'
-        },
-        {
-            type: Schema.Types.ObjectId, 
-            ref: 'Movie'
-        }
-    ]
-    }
+    books: {
+        type: Schema.Types.ObjectId, 
+        ref: 'Book'
+    },
+    movies: {
+        type: Schema.Types.ObjectId, 
+        ref: 'Movie'
+    },
+    purchaseTotal: String
 }, { 
     timestamps: true
 })

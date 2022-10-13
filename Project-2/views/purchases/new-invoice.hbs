@@ -3,18 +3,21 @@
 <div class="newInvoice">
     <form action="/purchases/create" method="POST">
 
-        <label for="customer">Customer:</label><br>
-        <select name="customer" multiple>
-            {{#each customer}}
-                <option value={{firstName}} {{lastName}} ● {{email}}></option>
+        {{!-- <label for="customer">Customer: </label><br>
+        <select name="customer" id="select">
+            {{#each customers}}
+                <option value="{{_id}}">{{_id}}</option>
             {{/each}}
+        </select> --}}
+
+        <label for="customers">Select Customer:</label><br>
+        <select name="customers" id="customerMenu">
+            <option disabled="disabled" selected="selected">--Select one customer--</option>
+            <option value="6341c093f5cc7f8730882f1e">Gaius Baltar</option>
+            <option value="6341c85ef5cc7f8730882f44">Donkey Kong</option>
+            <option value="6341d16ef5cc7f8730882f50">Nyango Star</option>
+            <option value="6342509a501db2492f8f953d">Caprica Six</option>
         </select>
-
-        <br><br>
-
-        <label> Invoice Title: <br>
-            <input type="text" name="invoiceTitle" placeholder="Optional">
-        </label>
 
         <br><br>
 
@@ -30,20 +33,38 @@
 
         <br><br>
 
-        <label for="items">Book Items:</label><br>
+        <label for="books">Select Books:</label><br>
+        <select name="books" id="booksMenu" multiple>
+            <option disabled="disabled" selected="selected">--Use ctrl click to select multiple items--</option>
+            <option value="6341f78c6dbacce8d047454b">Fight Club ($10.99)</option>
+            <option value="6341f89a6dbacce8d047455f">The beer drinkers guide to wine ($10.99)</option>
+            <option value="63471b22d47b99158a82b3de">The wine drinkers guide to beer ($10.99)</option>
+        </select>
+
+        <br><br>
+
+        {{!-- <label for="items">Book Items:</label><br>
         <select name="book" multiple>
             {{#each book}}
                 <option value={{title}} {{price}}></option>
             {{/each}}
         </select>
 
-        <br><br>
+        <br><br> --}}
 
-        <label for="items">Movie Items:</label><br>
+        {{!-- <label for="items">Movie Items:</label><br>
         <select name="book" multiple>
             {{#each movie}}
                 <option value={{title}} {{price}}></option>
             {{/each}}
+        </select> --}}
+
+        <label for="movies">Select Movies:</label><br>
+        <select name="movies" id="moviesMenu" multiple>
+            <option disabled="disabled" selected="selected">--Use ctrl click to select multiple items--</option>
+            <option value="6341f6596dbacce8d0474546">Dr. Strangelove ($19.99)</option>
+            <option value="6341f9146dbacce8d0474569">The Last Movie ($9.99)</option>
+            <option value="63471c61d47b99158a82b3e3">The First Movie ($10.99)</option>
         </select>
 
         <br><br>
@@ -52,16 +73,13 @@
             <input type="radio" name="paymentMethod" value="Credit or debit card">Credit or debit card</input> <br>
             <input type="radio" name="paymentMethod" value="Gift card">Gift card</input> <br>
             <input type="radio" name="paymentMethod" value="Cash">Cash</input> <br>
-            <input type="radio" name="paymentMethod" value="Mobile wallet">Mobile wallet</input> <br>
         </select>
 
         <br><br>
 
-        <label for="invoiceStatus">Select a payment type:</label><br>
-            <input type="radio" name="invoiceStatus" value="OPEN">Open</input> <br>
-            <input type="radio" name="invoiceStatus" value="CLOSED">Closed</input> <br>
-            <input type="radio" name="invoiceStatus" value="CANCELLED">Cancelled</input> <br>
-        </select>
+        <label for="purchaseTotal">Purchase Total:<br>
+            <input type="text" name="purchaseTotal" >
+        </label>
 
         <br><br>
         

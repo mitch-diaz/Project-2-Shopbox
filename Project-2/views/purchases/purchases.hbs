@@ -1,0 +1,17 @@
+<br><br>
+<h1>Purchase History </h1>
+
+{{#if currentUser}}
+<button><a href="/purchases/create">Create New Invoice</a></button>
+
+<br><br>
+<hr>
+
+<br>
+{{#each purchases}}
+    <div class="purchaseBox">
+        <p> <a href="/purchases/{{_id}}"> <b>Order details for:</b> {{_id}} </a></p>
+        <p>......</p>
+    </div>
+{{/each}}
+{{/if}}
