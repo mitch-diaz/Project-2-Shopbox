@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.user
+  // res.locals.isAdmin = req.session.user.role === 'ADMIN'
   next();
 })
 
