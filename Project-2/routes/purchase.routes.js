@@ -9,8 +9,23 @@ const router = require("express").Router();
 // =========== CREATE A NEW INVOICE ============
 
 router.get('/purchases/create', (req, res, next) => {
-    res.render('purchases/new-invoice')
-})
+
+    Customer.find()
+    .then((customerFromDB) => {
+        Book.find()
+        .then((booksFromDb) => {
+            Movie.find()
+            .then((moviesFromDb) => {
+        res.render('purchases/new-invoice', {movies: moviesFromDb, customers: customerFromDB, books: booksFromDb});
+    })
+        
+        })
+        
+            })
+            .catch(err => {
+                console.log(err);
+                });    
+});
 
 router.post('/purchases/create', (req, res ,next) => {
     console.log(req.body);
@@ -23,6 +38,8 @@ router.post('/purchases/create', (req, res ,next) => {
         movies: req.body.movies,
         purchaseTotal: req.body.purchaseTotal,
     }
+
+    
 
     Purchase.create(invoiceToCreate)
     .then(newlyCreatedInvoice => {

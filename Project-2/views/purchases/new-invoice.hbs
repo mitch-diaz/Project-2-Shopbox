@@ -5,20 +5,11 @@
 <div class="newInvoice">
     <form action="/purchases/create" method="POST">
 
-        {{!-- <label for="customer">Customer: </label><br>
+        <label for="customer">Customer: </label><br>
         <select name="customer" id="select">
             {{#each customers}}
-                <option value="{{_id}}">{{_id}}</option>
+                <option value="{{_id}}">{{firstName}}</option>
             {{/each}}
-        </select> --}}
-
-        <label for="customers">Select Customer:</label><br>
-        <select name="customers" id="customerMenu">
-            <option disabled="disabled" selected="selected">--Select one customer--</option>
-            <option value="6341c093f5cc7f8730882f1e">Gaius Baltar</option>
-            <option value="6341c85ef5cc7f8730882f44">Donkey Kong</option>
-            <option value="6341d16ef5cc7f8730882f50">Nyango Star</option>
-            <option value="6342509a501db2492f8f953d">Caprica Six</option>
         </select>
 
         <br><br>
@@ -35,38 +26,20 @@
 
         <br><br>
 
-        <label for="books">Select Books:</label><br>
-        <select name="books" id="booksMenu" multiple>
-            <option disabled="disabled" selected="selected">--Use ctrl click to select multiple items--</option>
-            <option value="6341f78c6dbacce8d047454b">Fight Club ($10.99)</option>
-            <option value="6341f89a6dbacce8d047455f">The beer drinkers guide to wine ($10.99)</option>
-            <option value="63471b22d47b99158a82b3de">The wine drinkers guide to beer ($10.99)</option>
+        <label for="books">Select Books: </label><br>
+        <select name="books" id="select">
+            {{#each books}}
+                <option value="{{_id}}">{{title}} {{price}}</option>
+            {{/each}}
         </select>
 
         <br><br>
 
-        {{!-- <label for="items">Book Items:</label><br>
-        <select name="book" multiple>
-            {{#each book}}
-                <option value={{title}} {{price}}></option>
+        <label for="movies">Select Books: </label><br>
+        <select name="movies" id="select">
+            {{#each movies}}
+                <option value="{{_id}}">{{title}} {{price}}</option>
             {{/each}}
-        </select>
-
-        <br><br> --}}
-
-        {{!-- <label for="items">Movie Items:</label><br>
-        <select name="book" multiple>
-            {{#each movie}}
-                <option value={{title}} {{price}}></option>
-            {{/each}}
-        </select> --}}
-
-        <label for="movies">Select Movies:</label><br>
-        <select name="movies" id="moviesMenu" multiple>
-            <option disabled="disabled" selected="selected">--Use ctrl click to select multiple items--</option>
-            <option value="6341f6596dbacce8d0474546">Dr. Strangelove ($19.99)</option>
-            <option value="6341f9146dbacce8d0474569">The Last Movie ($9.99)</option>
-            <option value="63471c61d47b99158a82b3e3">The First Movie ($10.99)</option>
         </select>
 
         <br><br>
@@ -80,7 +53,7 @@
         <br><br>
 
         <label for="purchaseTotal">Purchase Total:<br>
-            <input type="text" name="purchaseTotal" >
+            <input type="text" name="purchaseTotal">
         </label>
 
         <br><br>
