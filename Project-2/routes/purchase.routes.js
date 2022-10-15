@@ -28,22 +28,22 @@ router.get('/purchases/create', (req, res, next) => {
 });
 
 router.post('/purchases/create', (req, res ,next) => {
-    console.log(req.body);
+    
     const invoiceToCreate = {
         invoiceId: req.body.invoiceId,
         invoiceDate: req.body.invoiceDate,
         paymentMethod: req.body.paymentMethod,
-        customers: req.body.customers,
+        customers: req.body.customer,
         books: req.body.books,
         movies: req.body.movies,
         purchaseTotal: req.body.purchaseTotal,
     }
 
-    
 
     Purchase.create(invoiceToCreate)
     .then(newlyCreatedInvoice => {
-        res.redirect('/purchases/create', {newlyCreatedInvoice});
+        console.log(newlyCreatedInvoice)
+        res.redirect('/purchases/create', newlyCreatedInvoice);
     }).catch(err => {
         res.redirect('/purchases/create');
     })
@@ -53,10 +53,14 @@ router.post('/purchases/create', (req, res ,next) => {
 // =========== READ LIST OF INVOICES ============
 
 router.get('/purchases', (req, res, next) => {
+
+    
     Purchase.find()
+    .populate('customers')
     .then((invoicesFromDb) => {
         console.log('Invoices from DB ===>' , {invoicesFromDb});
         invoiceData = {purchases: invoicesFromDb}
+        console.log(invoiceData)
         res.render('purchases/purchases', invoiceData);
     })
     .catch(error => {
@@ -74,6 +78,8 @@ router.get('/purchases/:purchaseId', (req, res, next) => {
     .populate('movies')
     .populate('customers')
     .then(purchasesFromDb => {
+        console.log('==========================')
+        console.log({PURCHASE: purchasesFromDb})
         console.log('The clicked on purchase: ', purchasesFromDb);
         res.render('purchases/purchase-details', purchasesFromDb);
     })

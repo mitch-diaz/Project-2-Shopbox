@@ -1,5 +1,5 @@
 <br><br>
-<h1>Purchase Details for {{_id}} </h1>
+<h1>Purchase Details for: {{customers.firstName}} {{customers.lastName}}</h1>
 
 {{#if currentUser}}
 
@@ -13,7 +13,7 @@
         <p> <b>Purchase Date:</b> {{invoiceDate}}</p>
         <p> <b>Books purchased:</b> {{books.title}} - {{books.price}} </p> 
         <p> <b>Movies purchased:</b> {{movies.title}} - {{movies.price}} </p>
-        <p> <b>Total:</b> {{purchaseTotal}}</p>
+        <p> <b>Total:</b> ${{purchaseTotal}}</p>
     </div>
 
     <br><br>
