@@ -1,11 +1,38 @@
-<h1>Movies</h1>
 
 
-{{!-- Make this only availble for employees  --}}
-<button><a href="/movies/createMovie">Create a Movie</a></button>
+{{#if currentUser}}
+<main>
+    <div class="page-heading">
+        <h1>Movie List</h1>
+        <button><a href="/movies/createMovie">Add New Movie</a></button>
+    </div>
 
-{{#each movie}}
-<h2>Title: <br> {{this.title}}</h2>
-<button><a href="/movies/details/{{id}}">Details</a></button>
+    <div class="page-list-heading">
+        <div class="list-head-1" id="title">Title</div>
+        <div class="list-head-2" id="genre">Genre</div>
+    </div>
 
+    {{#each movie}}
+    <div class="list-actual-display">
+        <div class="actual1">
+            <p>{{title}}</p>
+        </div>
+
+        <div class="actual2">
+            <p>{{genre}}</p>
+        </div>
+
+        <div class="actual3">
+            <p><a class="details-link" href="/movies/details/{{_id}}">See movie details</a></p>
+        </div> 
+
+    </div>
 {{/each}}
+    
+
+</main>
+
+
+<br>
+
+{{/if}}

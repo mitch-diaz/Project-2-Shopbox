@@ -1,9 +1,39 @@
-<h1>Books</h1>
 
-{{!-- Make this only availble for employees  --}}
-<button><a href="/books/createBook">Create Book</a></button>
 
-{{#each book}}
-<h2>Title: <br> {{this.title}}</h2>
-<button><a href="/books/details/{{this._id}}">Details</a></button>
+{{#if currentUser}}
+<main>
+    <div class="page-heading">
+        <h1>Book List</h1>
+        <button><a href="/books/createBook">Add New Book</a></button>
+    </div>
+
+    <div class="page-list-heading">
+        <div class="list-head-1" id="title">Title</div>
+        <div class="list-head-2" id="author">Author</div>
+    </div>
+   
+
+    {{#each book}}
+    <div class="list-actual-display">
+        <div class="actual1">
+            <p>{{title}}</p>
+        </div>
+
+        <div class="actual2">
+            <p>{{author}}</p>
+        </div>
+
+        <div class="actual3">
+            <p><a class="details-link" href="/books/details/{{_id}}">See book details</a></p>
+        </div> 
+
+    </div>
 {{/each}}
+    
+
+</main>
+
+
+<br>
+
+{{/if}}
