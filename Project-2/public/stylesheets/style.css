@@ -1,11 +1,11 @@
 
 body {
-  padding: 50px;
+  padding: 10px 0 0 50;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #83a4d4;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #ffffff;  /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #b6fbff, #83a4d4); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  max-width: 1800px;
 
 }
 
@@ -24,25 +24,193 @@ nav {
   justify-content: space-between;
   flex-direction: row-reverse;
   padding: 1rem;
-  border: 1px solid black;
-  border-radius: 15px;
+  /* border: 1px solid black;
+  border-radius: 15px; */
 }
 
-.signupPage {
+nav, .loginItems, .navigationItems {
+  font-size: 1.2em;
+}
+
+/* ========= HOME PAGE ======== */
+
+.homeLink {
+  text-decoration: underline;
+}
+
+.hero-section-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1800px;
+}
+
+.heroText-section-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 2px solid black; */
+  /* border-radius: 10px; */
+  /* padding: 3rem; */
+  max-width: 600px;
+}
+
+.heroText-section-1 h1 {
+  font-size: 5.9em;
+  margin-bottom: 15px;
+}
+
+.heroText-section-1 p {
+  font-size: 1.2em;
+  margin-bottom: 50px;
+  line-height: 24px;
+}
+
+.heroText-section-1 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 50px;
+  border-radius: 5px
+}
+
+.button {
+  font-size: 1.2em;
+  background-color: #006AFF;
+}
+
+.button:hover {
+  background-color: #005AD9;
+}
+
+.button a {
+  color: rgb(255, 255, 255);
+}
+
+.heroImg-section-1-container {
+  background-image: url("/images/tim-mossholder-sxb8StmTfaw-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  /* max-width: 1200px; */
+  /* background-color: #006AFF; */
+  /* flex: 0 0 auto; */
+  height: 525px;
+  width: 100%;
+}
+
+/* ======== SIGNUP FORM PAGE ======== */
+
+.signup-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  border: 2px solid black;
-  border-radius: 10px;
+  flex-wrap: wrap;
   padding: 2rem;
+  padding-bottom: 3rem;
 }
 
-.signupPage h1{
+.signup-container h1{
   color: black;
 }
 
 .signupContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #b3b3b3;
+  border-radius: 3px;
+  padding: 2rem;
+  width: 600px;
+  background-color: white;
+}
+
+.signupContent .nameInput{
+  border-radius: 2px;
+  border: 1px solid #b3b3b3;
+  padding: 10px;
+  margin: 0 12px 0 0;
+  width: 17rem;
+  height: 3.5rem;
+}
+
+.signupContent .email-pw-input{
+  border-radius: 2px;
+  border: 1px solid #b3b3b3;
+  padding: 10px;
+  margin: 0 12px 0 0;
+  width: 35rem;
+  height: 3.5rem;
+}
+
+.signupContent .email-pw-input:hover {
+  border: 1px solid #005AFF;
+}
+
+.signupContent .nameInput:hover {
+  border: 1px solid #005AFF;
+}
+
+select {
+  border-radius: 2px;
+  width: 15rem;
+  height: 2rem;
+  margin-top: 5px;
+}
+
+select:hover {
+  background-color: #e2e2e2;
+}
+
+.signupContent button {
+  border-radius: 3px;
+  border: 1px solid #005AFF;
+  padding: 10px;
+  width: 5rem;
+  background-color: #005AFF;
+  color: white;
+  font-size: 1.1em;
+  margin-top: 15px;
+}
+
+.signupContent button:hover {
+  background-color: #005AD9;
+}
+
+/* ========= LOGIN ========= */
+
+.logIn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  /* border-radius: 3px; */
+  padding: 3rem;
+  width: 100%;
+}
+
+.logIn-container a {
+  color: #005AD9;
+}
+
+.logIn-container input {
+  border-radius: 3px;
+  border: 1px solid black;
+  padding: 10px;
+  width: 30rem;
+  height: 3.8rem;
+}
+
+.logIn-container input:hover {
+  border: 1px solid #005AFF;
+}
+
+.loginContent {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -52,28 +220,6 @@ nav {
   padding: 2rem;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
-
-.signupContent input{
-  border-radius: 10px;
-  border: 2px solid black;
-  padding: 10px;
-  width: 12rem;
-}
-
-.loginPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.loginPage input {
-  border-radius: 10px;
-  border: 2px solid black;
-  padding: 10px;
-  width: 12rem;
-}
-
 /* .loginPage form {
   display: flex;
   justify-content: center;
@@ -81,18 +227,22 @@ nav {
   align-items: center;
 } */
 
-.loginPage button {
-  border-radius: 10px;
-  border: 2px solid black;
+.logIn-container button {
+  border-radius: 3px;
+  border: 1px solid #005AFF;
   padding: 10px;
-  width: 8rem;
-
+  width: 5rem;
+  background-color: #005AFF;
+  color: white;
+  font-size: 1.1em;
 }
 
+.logIn-container button:hover {
+  background-color: #005AD9;
+}
 
 .loginItems {
   display: flex;
-  
   padding-left: 50px;
   padding-right: 50px;
 }
@@ -100,12 +250,19 @@ nav {
 .loginItems a{
   display: flex;
   padding-left: 15px;
-  
+  color: rgb(86, 86, 86);
+}
+
+.signup-login-link-hover:hover {
+  color: #005AD9;
+  text-decoration: underline;
 }
 
 .navigationItems a{
   padding-left: 10px;
 }
+
+/* ========== PROFILE PAGE ========== */
 
 .profilePage {
   display: flex;
@@ -122,4 +279,35 @@ nav {
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+  border: 2px solid black;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 20rem;
+}
+
+.profileContent button {
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 10px;
+  width: 8rem;
+
+}
+
+.customerContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 20rem;
+}
+
+.customerContent button {
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 10px;
+  width: 8rem;
+
 }

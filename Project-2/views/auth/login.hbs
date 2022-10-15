@@ -1,26 +1,28 @@
 
-<div class="loginPage">
+<div class="logIn-container">
 
-<h1>Login</h1>
-<br>
-<form action="/auth/login" method="POST">
-   <label>  <br>
-      <input type="text" name="email" placeholder="Email">
-   </label>
+   <div class="login">
 
-   <br><br>
+      <h1>Login</h1>
+      <p>New to Shopbox? <a href="/auth/signup"> <b>Sign up</b> </a> </p>
+      
+      <form action="/auth/login" method="POST">
+         
+         <input type="text" name="email" placeholder="Email">
 
-   <label>  <br>
-      <input type="password" name="password" placeholder="Password">
-   </label>
+         <br><br>
 
-   <br><br>
+         <input type="password" name="password" placeholder="Password">
 
-   <button type="submit">Submit</button>
-</form>
+         <br><br>
 
-{{#if errorMessage}}
-   {{errorMessage}}
-{{/if}}
+         <button type="submit">Submit</button>
+      </form>
+
+      {{#if errorMessage}}
+         {{errorMessage}}
+      {{/if}}
+
+   </div>
 
 </div>

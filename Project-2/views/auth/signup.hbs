@@ -1,67 +1,55 @@
 
 
-<div class="signupPage">
+<div class="signup-container">
 
-<h1>Create Account</h1>
 
    <div class="signupContent">
+      
+      <h1>Create Account</h1>
+      <br>
 
-   <form action="/auth/signup" method="POST">
+      <form action="/auth/signup" method="POST">
 
-   <label> First Name: <br>
-      <input type="text" name="firstName" placeholder="First Name">
-   </label>
+         <input class="nameInput" type="text" name="firstName" placeholder="First Name">
 
-   <br><br>
+         <input class="nameInput" type="text" name="lastName" placeholder="Last Name">
 
-   <label> Last Name: <br>
-      <input type="text" name="lastName">
-   </label>
+         <br><br>
 
-   <br><br>
+         <input class="email-pw-input" type="text" name="email" placeholder="Email">
 
-   <label> Email: <br>
-      <input type="text" name="email">
-   </label>
+         <br><br>
 
-   <br><br>
+         <input class="email-pw-input" type="password" name="password" placeholder="Password">
 
-   <label> Password: <br>
-      <input type="password" name="password">
-   </label>
+         <br><br>
 
-   <br><br>
+         <label for="storeType">How do you sell?</label> <br>
+         <select name="storeType" id="storeType">
+            <option value="" disabled="disabled" selected="selected">--Please choose an option--</option>
+            <option value="ONLINE STORE">Online store only</option>
+            <option value="PHYSICAL STORE">Physical store only</option>
+            <option value="ONLINE AND PHYSICAL STORE">I sell from a physical and online store</option>
+         </select>
 
-   <label for="storeType">How do you sell?</label> <br>
-   <select name="storeType" id="storeType">
-      <option value="" disabled="disabled" selected="selected">--Please choose an option--</option>
-      <option value="ONLINE STORE">Online store only</option>
-      <option value="PHYSICAL STORE">Physical store only</option>
-      <option value="ONLINE AND PHYSICAL STORE">I sell from a physical and online store</option>
-   </select>
+         <br><br>
 
-   <br><br>
+         <label for="role">Assign access level:</label> <br>
+         <select name="role" id="role">
+            <option value="" disabled="disabled" selected="selected">--Please choose an option--</option>
+            <option value="ADMIN">Admin</option>
+            <option value="STAFF">Staff</option>
+         </select>
 
-   <label for="role">Assign access level:</label> <br>
-   <select name="role" id="role">
-      <option value="" disabled="disabled" selected="selected">--Please choose an option--</option>
-      <option value="ADMIN">Admin</option>
-      <option value="STAFF">Staff</option>
-   </select>
+         <br><br>
 
-   {{!-- <label>
-      <input type="checkbox" value="true" name="admin">Admin <br>
-   </label> --}}
+         <button type="submit">Submit</button>
 
-   <br><br>
+      </form>
 
-   <button type="submit">Submit</button>
-
-</form>
-
-{{#if errorMessage}}
-   {{errorMessage}}
-{{/if}}
+      {{#if errorMessage}}
+         {{errorMessage}}
+      {{/if}}
 
    </div>
 
