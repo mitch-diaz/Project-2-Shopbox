@@ -1,19 +1,37 @@
-<br>
-<h1>Customers List</h1>
-
 
 {{#if currentUser}}
-<button><a href="/customers/create">Add New Customer</a></button>
+<main>
+    <div class="page-heading">
+        <h1>Customers List</h1>
+        <button><a href="/customers/create">Add New Customer</a></button>
+    </div>
 
-<br><br>
-<hr>
+    <div class="page-list-heading">
+        <div class="list-head-1" id="name"></div>
+        <div class="list-head-2" id="email"></div>
+    </div>
 
-<br>
-{{#each customers}}
-    <div class="customerBox">
-        <h4> {{firstName}} {{lastName}} </h4>
-        <h5> <a href="/customers/{{_id}}">See customer details</a></h5>
-        <p>...</p>
+    {{#each customers}}
+    <div class="list-actual-display">
+        <div class="actual1">
+            <p>{{firstName}} {{lastName}}</p>
+        </div>
+
+        <div class="actual2">
+            <p>{{email}}</p>
+        </div>
+
+        <div class="actual3">
+            <p><a class="details-link" href="/customers/{{_id}}">See customer information</a></p>
+        </div> 
+
     </div>
 {{/each}}
+    
+
+</main>
+
+
+<br>
+
 {{/if}}
