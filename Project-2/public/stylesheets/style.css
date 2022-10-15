@@ -41,6 +41,7 @@ nav, .loginItems, .navigationItems {
 .hero-section-1 {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   max-width: 1800px;
 }
 
@@ -88,14 +89,15 @@ nav, .loginItems, .navigationItems {
   color: rgb(255, 255, 255);
 }
 
-.heroImg-section-1 {
-  background-image: url("/public/images/tim-mossholder-sxb8StmTfaw-unsplash.jpg");
+.heroImg-section-1-container {
+  background-image: url("/images/tim-mossholder-sxb8StmTfaw-unsplash.jpg");
   background-repeat: no-repeat;
   background-position: top;
   background-size: contain;
   /* max-width: 1200px; */
   /* background-color: #006AFF; */
-  height: 100%;
+  /* flex: 0 0 auto; */
+  height: 525px;
   width: 100%;
 }
 
