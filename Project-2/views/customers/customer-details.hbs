@@ -1,26 +1,36 @@
-<br>
-<h2>Customer Details</h2>
 {{#if currentUser}}
-<p><b>Name:</b> {{firstName}} {{lastName}} </p>
-{{!-- <p><b>See purchase history:</b>  </p> --}}
-<p><b>Email:</b> {{email}} </p>
+<main>
+    
+    <div class="page-heading">
+        <h2>Customer Information</h2>
+        <p> <a class="back-link" href="/customers">Back to customers list</a> </p>
+    </div>
 
-<p>
-    <b>Address:</b> <br>
-    {{address}}, Apt#: {{apartmentNumber}} <br>
-    {{city}}, {{state}}, {{zip}} 
-</p>
+    <div class="details-container">
 
-<form action="/customers/delete/{{_id}}" method="POST">
-    <button>Delete this customer</button>
-</form>
+        <div class="details-info-box">
+            <p class="p-detail-heading"> <span>Name:</span> <br>{{firstName}} {{lastName}} </p>
 
-<br><br>
+            <p class="p-detail-heading"> <span>Email:</span> <br>{{email}} </p>
 
-<button> <a href="/customers/{{_id}}/update-customer">Update customer info</a> </button>
+            <p class="p-detail-heading">
+                <span>Address:</span> <br>
+                {{address}}, Apt#: {{apartmentNumber}} <br>
+                {{city}}, {{state}}, {{zip}} 
+            </p>
+        </div>
 
-<br><br>
+        <div class="detail-btns">
 
-<button> <a href="/customers">Back to customers list</a> </button>
+            <button> <a href="/customers/{{_id}}/update-customer">Update customer info</a> </button>
 
+            <form action="/customers/delete/{{_id}}" method="POST">
+                <button class="delete-btn" >Delete this customer</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
 {{/if}}
