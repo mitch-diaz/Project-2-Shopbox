@@ -10,6 +10,18 @@ main {
     margin: 0 0 40px 0;
 }
 
+.page-list-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list-head p {
+    width: 200px;
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
 .list-actual-display {
     display: flex;
     flex-direction: row;
