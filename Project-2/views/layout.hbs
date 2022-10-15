@@ -12,18 +12,20 @@
 
     <nav>
       <div class="loginItems">
-        <a href="/auth/signup">Signup</a>
-
         {{#unless currentUser}}
-          <a href="/auth/login">Login</a>
+          <a class="signup-login-link-hover" href="/auth/signup"> <b>Sign up</b> </a>
+          <a class="signup-login-link-hover" href="/auth/login"> <b>Login</b> </a>
         {{/unless}}
+
+        {{#if currentUser}}
           <a href="/auth/logout">Logout</a>
           <a href="/auth/profile">Profile</a>
+        {{/if}}  
 
       </div>
 
       <div class="navigationItems">
-        <a href="/">Home</a>
+        <a class="homeLink" href="/"> <b>Shopbox</b></a>
 
         {{#if currentUser}}
           <a href="/customers">Customers</a>
@@ -31,9 +33,8 @@
           <a href="/movies">Movies</a>
           <a href="/purchases">Purchases</a>
         {{/if}}
-
-
       </div>
+
     </nav>
 
     <br>
