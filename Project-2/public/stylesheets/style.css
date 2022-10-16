@@ -1,4 +1,4 @@
-
+/*  */
 body {
   padding: 10px 0 0 50;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -29,7 +29,7 @@ nav, .loginItems, .navigationItems {
   font-size: 1.2em;
 }
 
-/* ========= HOME PAGE ======== */
+/* ========= HOME PAGE STYLES ======== */
 
 .homeLink {
   text-decoration: underline;

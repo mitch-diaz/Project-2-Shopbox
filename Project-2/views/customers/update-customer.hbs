@@ -1,57 +1,40 @@
-<h1>Update Customer Information</h1>
-
 {{#if currentUser}}
 
-<form action="/customers/{{id}}" method="POST">
-   <label> First Name: <br>
-      <input type="text" name="firstName" value="{{firstName}}" >
-   </label>
+<div class="update-customer-container">
 
-   <br><br>
+   <div class="update-customer-formBox">
 
-   <label> Last Name: <br>
-      <input type="text" name="lastName" value="{{lastName}}">
-   </label>
+      <h1>Update Customer Information</h1>
 
-   <br><br>
+      <br>
 
-   <label> Email: <br>
-      <input type="text" name="email" value="{{email}}">
-   </label>
+      <form action="/customers/{{id}}" method="POST">
+            
+            <input class="nameInput" placeholder="First Name" type="text" name="firstName" value="{{firstName}}">
+            <input class="nameInput" placeholder="Last Name" type="text" name="lastName" value="{{lastName}}">
 
-   <br><br>
+         <br><br>
 
-   <label> Address: <br>
-      <input type="text" name="address" value="{{address}}">
-   </label>
+         <input class="emailInput" placeholder="Email" type="text" name="email" value="{{email}}">
 
-   <br><br>
+         <br><br>
 
-   <label> Apt Number: <br>
-      <input type="text" name="apartmentNumber" value="{{apartmentNumber}}">
-   </label>
+         <input class="addressInput" placeholder="Address" type="text" name="address" value="{{address}}">
+         <input class="apartNumInput" placeholder="Apartment #" type="text" name="apartmentNumber" value="{{apartmentNumber}}">
 
-   <br><br>
+         <br><br>
 
-   <label> City: <br>
-      <input type="text" name="city" value="{{city}}">
-   </label>
+         <input class="cityInput" placeholder="City" type="text" name="city" value="{{city}}">
+         <input class="stateInput" placeholder="State" type="text" name="state" value="{{state}}">
+         <input class="zipInput" placeholder="Zip" type="number" name="zip" value="{{zip}}">
 
-   <br><br>
+         <br><br>
 
-   <label> State: <br>
-      <input type="text" name="state" value="{{state}}">
-   </label>
+         <button class="update-customer-btn" type="submit">Update Customer</button>
+      </form>
 
-   <br><br>
+   </div>
 
-   <label> Zip Code: <br>
-      <input type="number" name="zip" value="{{zip}}">
-   </label>
-
-   <br><br>
-
-   <button type="submit">Update Customer Info</button>
-</form>
+</div>
 
 {{/if}}

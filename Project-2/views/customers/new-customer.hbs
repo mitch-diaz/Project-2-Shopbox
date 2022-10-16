@@ -1,57 +1,39 @@
-<h1>Add A New Customer</h1>
-
 {{#if currentUser}}
 
-<form action="/customers/create" method="POST">
-   <label> First Name: <br>
-      <input type="text" name="firstName">
-   </label>
+<div class="new-customer-container">
 
-   <br><br>
+   <div class="new-customer-formBox">
 
-   <label> Last Name: <br>
-      <input type="text" name="lastName">
-   </label>
+      <h1>Add A New Customer</h1>
 
-   <br><br>
+      <br>
 
-   <label> Email: <br>
-      <input type="text" name="email">
-   </label>
+      <form action="/customers/create" method="POST">
+         <input class="nameInput" type="text" name="firstName" placeholder="First Name">
+         <input class="nameInput" type="text" name="lastName" placeholder="Last Name">
 
-   <br><br>
+         <br><br>
 
-   <label> Address: <br>
-      <input type="text" name="address">
-   </label>
+         <input class="emailInput" type="text" name="email" placeholder="Email">
 
-   <br><br>
+         <br><br>
 
-   <label> Apt Number: <br>
-      <input type="text" name="apartmentNumber">
-   </label>
+         <input class="addressInput" type="text" name="address" placeholder="Address">
+         <input class="apartNumInput" type="text" name="apartmentNumber" placeholder="Apt Number">
 
-   <br><br>
+         <br><br>
 
-   <label> City: <br>
-      <input type="text" name="city">
-   </label>
+         <input class="cityInput" type="text" name="city" placeholder="City">
+         <input class="stateInput" type="text" name="state" placeholder="State">
+         <input class="zipInput" type="number" name="zip" placeholder="Zip Code">
 
-   <br><br>
+         <br><br>
 
-   <label> State: <br>
-      <input type="text" name="state">
-   </label>
+         <button class="add-new-customer-btn" type="submit">Add New Customer</button>
+      </form>
 
-   <br><br>
+   </div>
 
-   <label> Zip Code: <br>
-      <input type="number" name="zip">
-   </label>
-
-   <br><br>
-
-   <button type="submit">Create</button>
-</form>
+</div>
 
 {{/if}}

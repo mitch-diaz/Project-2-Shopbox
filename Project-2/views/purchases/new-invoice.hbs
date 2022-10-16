@@ -1,8 +1,11 @@
-<h1>New Invoice</h1>
-
 {{#if currentUser}}
 
-<div class="newInvoice">
+<div class="new-invoice-container">
+
+    <div class="new-invoice-formBox">
+
+    <h1>New Invoice</h1>
+
     <form action="/purchases/create" method="POST">
 
         <label for="customer">Customer: </label><br>
@@ -58,9 +61,13 @@
 
         <br><br>
         
-        <button type="submit">Save Changes</button>
+        <button class="save-invoice-btn" type="submit">Save Invoice</button>
 
     </form>
 </div>
+    
+</div>
+
+
 
 {{/if}}
