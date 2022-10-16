@@ -1,26 +1,41 @@
-<br><br>
-<h1>Purchase Details for: {{customers.firstName}} {{customers.lastName}}</h1>
-
 {{#if currentUser}}
-
-<hr>
-
-<br>
-    <div class="purchaseBox">
-        <p> <b>Purchase ID:</b> {{_id}} </p>
-        <p> <b>Invoice#:</b> {{invoiceId}}</p>
-        <p> <b>Customer:</b>  {{customers.firstName}} {{customers.lastName}} </p>
-        <p> <b>Purchase Date:</b> {{invoiceDate}}</p>
-        <p> <b>Books purchased:</b> {{books.title}} - {{books.price}} </p> 
-        <p> <b>Movies purchased:</b> {{movies.title}} - {{movies.price}} </p>
-        <p> <b>Total:</b> ${{purchaseTotal}}</p>
+<main>
+    
+    <div class="page-heading">
+        <h1>Purchase Details for: {{customers.firstName}} {{customers.lastName}}</h1>
+        <p> <a class="back-link" href="/purchases">Back to purchases</a> </p>
     </div>
 
-    <br><br>
+    <div class="details-container">
 
-    <form action="/purchases/delete/{{_id}}" method="POST">
-        <button>Delete purchase</button>
-    </form>
+        <div class="details-info-box">
+            <p class="p-detail-heading"> <span>Purchase ID:</span> <br>{{_id}}</p>
+            <p class="p-detail-heading"> <span>Invoice#:</span> <br>{{invoiceId}}</p>
+            <p class="p-detail-heading"> <span>Customer:</span> <br>{{customers.firstName}} {{customers.lastName}}</p>
+            <p class="p-detail-heading"> <span>Purchase Date:</span> <br>{{invoiceDate}}</p>
 
-    <button> <a href="/purchases">Back to purchases</a> </button>
+            {{!-- {{#each books}} --}}
+                <p class="p-detail-heading"> <span>Books purchased:</span> <br>{{books.title}} - {{books.price}}</p>
+                <p class="p-detail-heading"> <span>Movies purchased:</span> <br>{{movies.title}} - {{movies.price}}</p>
+            {{!-- {{/each}} --}}
+
+            {{!-- {{#each movies}}
+
+            {{/each}} --}}
+
+            <p class="p-detail-heading"> <span>Total:</span> <br>${{purchaseTotal}}</p>
+            
+        </div>
+
+        <div class="detail-btns">
+
+            <form action="/purchases/delete/{{_id}}" method="POST">
+                <button class="delete-btn">Delete purchase</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
 {{/if}}
