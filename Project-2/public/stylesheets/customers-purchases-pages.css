@@ -70,7 +70,6 @@ main {
     color: white;
   }
 
-
 /* ======= CUSTOMER DETAIL VIEW STYLES ======== */
 
 .back-link {
@@ -179,9 +178,8 @@ span {
     height: 3.5rem;
 }
 
-
-/* ========= All Hover Styles ========= */
-
+/* ========= ALL HOVER STYLES ========= */
+/* ====== Input hovers */
 .nameInput:hover {border: 1px solid #005AFF;}
 .emailInput:hover {border: 1px solid #005AFF;}
 .addressInput:hover {border: 1px solid #005AFF;}
@@ -189,12 +187,15 @@ span {
 .cityInput:hover {border: 1px solid #005AFF;}
 .stateInput:hover {border: 1px solid #005AFF;}
 .zipInput:hover {border: 1px solid #005AFF;}
-.details-link:hover {color: #005AD9;}
+/* ====== Button hovers */
 .add-new-customer-btn:hover {background-color: #005AD9;}
 .update-customer-btn:hover {background-color: #005AD9;}
 .new-invoice-btn:hover {background-color: #005AD9;}
 .save-invoice-btn:hover {background-color: #005AD9;}
+/* ====== Text link hovers */
+.details-link:hover {color: #005AD9;}
 .back-link:hover {color: #005AD9;}
+
 .delete-btn:hover {
     border-radius: 3px;
     border: 2px solid #ff0000;
