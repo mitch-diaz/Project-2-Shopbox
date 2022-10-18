@@ -4,70 +4,69 @@
 
     <div class="new-invoice-formBox">
 
-    <h1>New Invoice</h1>
+        <h1>New Invoice</h1>
 
-    <form action="/purchases/create" method="POST">
+        <form action="/purchases/create" method="POST">
 
-        <label for="customer">Customer: </label><br>
-        <select name="customer" id="select">
-            {{#each customers}}
-                <option value="{{_id}}">{{firstName}}</option>
-            {{/each}}
-        </select>
+            {{!-- <label>Customer: </label><br> --}}
+            <select class="new-invoice-input" name="customer" id="select">
+                <option value="" disabled="disabled" selected="selected">--Select a customer--</option>
+                {{#each customers}}
+                    <option value="{{_id}}">{{firstName}} {{lastName}} </option>
+                {{/each}}
+            </select>
 
-        <br><br>
+            <br><br>
 
-        <label> Invoice ID: <br>
-            <input type="text" name="invoiceId" >
-        </label>
+            <label> <span>Create an invoice ID:</span> <br>
+                <input class="new-invoice-input" type="text" name="invoiceId" placeholder="ex: 001">
+            </label>
 
-        <br><br>
+            <br><br>
 
-        <label for="invoiceDate">Order date:<br>
-            <input type="date" name="invoiceDate" >
-        </label>
+            <label> <span>Order date:</span> <br>
+                <input class="new-invoice-input" type="date" name="invoiceDate">
+            </label>
 
-        <br><br>
+            <br><br>
 
-        <label for="books">Select Books: </label><br>
-        <select name="books" id="select">
-            {{#each books}}
-                <option value="{{_id}}">{{title}} {{price}}</option>
-            {{/each}}
-        </select>
+            <select class="new-invoice-input" name="books" id="select">
+                <option class="disabled" value="" disabled="disabled" selected="selected">--Choose  a book--</option>
+                {{#each books}}
+                    <option value="{{_id}}">{{title}} {{price}}</option>
+                {{/each}}
+            </select>
 
-        <br><br>
+            <br><br>
 
-        <label for="movies">Select Books: </label><br>
-        <select name="movies" id="select">
-            {{#each movies}}
-                <option value="{{_id}}">{{title}} {{price}}</option>
-            {{/each}}
-        </select>
+            <select class="new-invoice-input" name="movies" id="select">
+                <option value="" disabled="disabled" selected="selected">--Choose a movie--</option>
+                {{#each movies}}
+                    <option value="{{_id}}">{{title}} {{price}}</option>
+                {{/each}}
+            </select>
 
-        <br><br>
+            <br><br>
 
-        <label for="paymentMethod">Select a payment type:</label><br>
-            <input type="radio" name="paymentMethod" value="Credit or debit card">Credit or debit card</input> <br>
-            <input type="radio" name="paymentMethod" value="Gift card">Gift card</input> <br>
-            <input type="radio" name="paymentMethod" value="Cash">Cash</input> <br>
-        </select>
+            <label> <span>Select a payment type:</span> </label> <br>
+            <input class="radio" type="radio" name="paymentMethod" value="Credit or debit card">Credit or debit card</input> <br>
+            <input class="radio" type="radio" name="paymentMethod" value="Gift card">Gift card</input> <br>
+            <input class="radio" type="radio" name="paymentMethod" value="Cash">Cash</input> <br>
+            
 
-        <br><br>
+            <br><br>
 
-        <label for="purchaseTotal">Purchase Total:<br>
-            <input type="text" name="purchaseTotal">
-        </label>
+            <label> <span>Purchase Total:</span> <br>
+                <input class="invoice-total-input" type="text" name="purchaseTotal">
+            </label>
 
-        <br><br>
-        
-        <button class="save-invoice-btn" type="submit">Save Invoice</button>
+            <br><br>
+            
+            <button class="save-invoice-btn" type="submit">Save Invoice</button>
 
-    </form>
-</div>
+        </form>
+
+    </div>
     
 </div>
-
-
-
 {{/if}}

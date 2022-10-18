@@ -178,8 +178,34 @@ span {
     height: 3.5rem;
 }
 
+/* ===== New Inoice */
+
+.new-invoice-container {
+    display: flex;
+    justify-content: center;
+}
+
+.new-invoice-input{
+    border-radius: 2px;
+    border: 1px solid #b3b3b3;
+    padding: 10px;
+    margin: 0 12px 0 0;
+    width: 25rem;
+    height: 3rem;
+}
+
+.invoice-total-input{
+    border-radius: 2px;
+    border: 1px solid #b3b3b3;
+    padding: 10px;
+    margin: 0 12px 0 0;
+    width: 11rem;
+    height: 3rem;
+}
+
 /* ========= ALL HOVER STYLES ========= */
 /* ====== Input hovers */
+.new-invoice-input:hover {border: 1px solid #005AFF;}
 .nameInput:hover {border: 1px solid #005AFF;}
 .emailInput:hover {border: 1px solid #005AFF;}
 .addressInput:hover {border: 1px solid #005AFF;}
