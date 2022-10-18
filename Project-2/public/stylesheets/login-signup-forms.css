@@ -146,11 +146,6 @@ input {
     color: rgb(86, 86, 86);
   }
   
-  .signup-login-link-hover:hover {
-    color: #005AD9;
-    text-decoration: underline;
-  }
-  
 /* ====== CHANGE PASSWORD */
 .changePW-form-container {
     display: flex;
