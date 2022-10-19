@@ -120,10 +120,6 @@ nav, .loginItems, .navigationItems {
 }
 
 .heroImg-section-1-container img {
-  /* background-image: url("/images/tim-mossholder-sxb8StmTfaw-unsplash.jpg");
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: contain; */
   width: 600px;
   border-radius: 15px;
 }
@@ -131,7 +127,7 @@ nav, .loginItems, .navigationItems {
 footer {
   margin: 120px 0 0 0;
   padding: 0;
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(0, 0, 0);
   height: 480px;
 }
 
@@ -140,7 +136,7 @@ footer {
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(0, 0, 0);
   max-width: 1800px;
 }
 
@@ -174,12 +170,28 @@ footer h4 {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(0, 0, 0);
   max-width: 1800px;
   margin: 20px 0 0 0;
-  align-items: baseline;
+  align-items: center;
 }
 
 .social-media-container p {
   color: rgb(129, 129, 129);
+}
+
+.icon-white-background {
+  background-color: rgb(207, 207, 207);
+  margin: 0 5px 0 5px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  height: 25px;
+  width: auto;
+}
+
+.icons img {
+  height: 25px;
 }
