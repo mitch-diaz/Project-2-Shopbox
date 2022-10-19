@@ -27,10 +27,8 @@ function totalValue(book, movie){
         totalPrice.book = Number(book);
         totalValue(totalPrice.book, totalPrice.movie)
         console.log(book)
-        // return book;
       }
     }
-    // return book;
   }
   
   
