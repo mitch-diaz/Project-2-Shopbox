@@ -209,7 +209,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
 // ======== SHELVED FEATURE - CHANGE / ADD NEW PASSWORD ===========
 router.get('/change-password', (req, res, next)=>{
   res.render("auth/change-password", {currentUser: req.session.user});
-})
+});
 
 router.post('/change-password', (req, res, next)=>{
   if(req.body.newpass !== req.body.confirmnewpass){

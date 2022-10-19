@@ -30,19 +30,19 @@
 
             <br><br>
 
-            <select class="new-invoice-input" name="books" id="select">
+            <select class="new-invoice-input" name="books" id="selectBook">
                 <option class="disabled" value="" disabled="disabled" selected="selected">--Choose  a book--</option>
                 {{#each books}}
-                    <option value="{{_id}}">{{title}} {{price}}</option>
+                    <option value="{{_id}}" data-price="{{price}}" class="selectBook">{{title}} {{price}}</option>
                 {{/each}}
             </select>
 
             <br><br>
 
-            <select class="new-invoice-input" name="movies" id="select">
+            <select class="new-invoice-input" name="movies" id="selectMovie">
                 <option value="" disabled="disabled" selected="selected">--Choose a movie--</option>
                 {{#each movies}}
-                    <option value="{{_id}}">{{title}} {{price}}</option>
+                    <option value="{{_id}}" data-price="{{price}}" class="selectMovie">{{title}} {{price}}</option>
                 {{/each}}
             </select>
 
@@ -57,7 +57,7 @@
             <br><br>
 
             <label> <span>Purchase Total:</span> <br>
-                <input class="invoice-total-input" type="text" name="purchaseTotal">
+                <input id="totalPrice" class="invoice-total-input" type="text" name="purchaseTotal" value="">
             </label>
 
             <br><br>
