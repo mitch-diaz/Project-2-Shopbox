@@ -13,7 +13,7 @@ let totalPrice = {
 
 function totalValue(book, movie){
   let totalPrice = book + movie;
-  document.getElementById('totalPrice').value = `$${totalPrice}`;
+  document.getElementById('totalPrice').value = `$${totalPrice.toFixed(2)}`;
 }
 
 
