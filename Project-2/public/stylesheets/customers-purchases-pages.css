@@ -43,6 +43,10 @@ main {
 
 /* ========== All Button Styles ========== */
 
+.detail-btns {
+    margin-top: 15px
+}
+
 .update-customer-btn, .add-new-customer-btn, .new-invoice-btn, .save-invoice-btn, .edit-movie-btn, .edit-book-btn {
     border-radius: 3px;
     border: 1px solid #006AFF;
@@ -86,6 +90,7 @@ main {
 span {
     font-weight: 900;
 }
+
 
   /* ========== CUSTOMER AND PURCHASE CREATE/UPDATE FORMS =========== */
 

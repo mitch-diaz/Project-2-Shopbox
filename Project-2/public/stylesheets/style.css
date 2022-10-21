@@ -150,7 +150,7 @@ footer {
   width: 200px;
 }
 
-ul {
+.link-list ul {
   list-style-type: none;
   margin: 0;
   padding: 0;

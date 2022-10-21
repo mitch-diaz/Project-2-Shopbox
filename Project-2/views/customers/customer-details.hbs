@@ -18,6 +18,13 @@
                 {{address}}, Apt#: {{apartmentNumber}} <br>
                 {{city}}, {{state}}, {{zip}} 
             </p>
+
+            <p class="p-detail-heading"> <span>Purchases:</span> </p>
+            <ul>
+                {{#each purchases}}
+                    <li class="p-detail-heading"> <a class="details-link" href="/purchases/{{_id}}">View purchase {{_id}}</a> </li>
+                {{/each}}
+            </ul>
         </div>
 
         <div class="detail-btns">
