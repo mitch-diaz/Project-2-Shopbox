@@ -43,7 +43,7 @@ main {
 
 /* ========== All Button Styles ========== */
 
-.update-customer-btn, .add-new-customer-btn, .new-invoice-btn, .save-invoice-btn {
+.update-customer-btn, .add-new-customer-btn, .new-invoice-btn, .save-invoice-btn, .edit-movie-btn, .edit-book-btn {
     border-radius: 3px;
     border: 1px solid #006AFF;
     padding: 10px;
@@ -218,6 +218,8 @@ span {
 .update-customer-btn:hover {background-color: #005AD9;}
 .new-invoice-btn:hover {background-color: #005AD9;}
 .save-invoice-btn:hover {background-color: #005AD9;}
+.edit-movie-btn:hover {background-color: #005AD9;}
+.edit-book-btn:hover {background-color: #005AD9;}
 /* ====== Text link hovers */
 .details-link:hover {color: #005AD9;}
 .back-link:hover {color: #005AD9;}

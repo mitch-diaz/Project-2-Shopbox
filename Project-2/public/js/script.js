@@ -12,7 +12,7 @@ let totalPrice = {
 }
 
 function totalValue(book, movie){
-  let totalPrice = book + movie;
+  let totalPrice = (book + movie) * 1.06;
   document.getElementById('totalPrice').value = `$${totalPrice.toFixed(2)}`;
 }
 
@@ -25,12 +25,12 @@ function totalValue(book, movie){
       if(bookOptions[i].selected){
         let book = bookOptions[i].getAttribute('data-price');
         totalPrice.book = Number(book);
-        totalValue(totalPrice.book, totalPrice.movie)
         console.log(book)
       }
+      totalValue(totalPrice.book, totalPrice.movie)
     }
+    return book;
   }
-  
   
   document.getElementById('selectMovie').onchange = function(e) {
     let movieOptions = document.getElementsByClassName('selectMovie');
@@ -39,13 +39,14 @@ function totalValue(book, movie){
       if(movieOptions[i].selected){
         let movie = movieOptions[i].getAttribute('data-price');
         totalPrice.movie = Number(movie);
-        totalValue(totalPrice.book, totalPrice.movie)
-          return movie;
+        
       }
+      totalValue(totalPrice.book, totalPrice.movie)
     }
     
     return movie;
   }
+  
   
   
 
