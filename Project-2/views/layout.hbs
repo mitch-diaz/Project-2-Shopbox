@@ -14,6 +14,39 @@
   <body>
 
     <nav>
+
+      {{!-- <div class="navigationItems">
+        <a class="homeLink" href="/"> <img src="/images/logo.png" alt="logo"> <b>Shopbox</b></a>
+      </div> --}}
+
+      <div class="navigationItems">
+        <a class="homeLink" href="/"> <img src="/images/logo.png" alt="logo"><b>Shopbox</b></a>
+
+        {{#unless currentUser}}
+          <a class="navText-link-hover" href="#"> <b>Products</b></a>
+          <a class="navText-link-hover" href="#"> <b>Business Types</b></a>
+          <a class="navText-link-hover" href="#"> <b>Why Shopbox?</b></a>
+          <a class="navText-link-hover" href="#"> <b>Pricing</b></a>
+          <a class="navText-link-hover" href="#"> <b>Resources</b></a>
+        {{/unless}}
+
+        {{#if currentUser}}
+          <a class="navText-link-hover" href="/customers">Customers</a>
+          <a class="navText-link-hover" href="/books">Books</a>
+          <a class="navText-link-hover" href="/movies">Movies</a>
+          <a class="navText-link-hover" href="/purchases">Purchases</a>
+        {{/if}}
+      </div>
+
+      {{!-- <div class="navigationItems">
+        {{#if currentUser}}
+          <a class="navText-link-hover" href="/customers">Customers</a>
+          <a class="navText-link-hover" href="/books">Books</a>
+          <a class="navText-link-hover" href="/movies">Movies</a>
+          <a class="navText-link-hover" href="/purchases">Purchases</a>
+        {{/if}}
+      </div> --}}
+
       <div class="loginItems">
         {{#unless currentUser}}
           <a class="navText-link-hover" href="/auth/signup"> <b>Sign up</b> </a>
@@ -24,18 +57,6 @@
           <a class="navText-link-hover" href="/auth/logout"><b>Logout</b></a>
           <a class="navText-link-hover" href="/auth/profile"> <b>Profile</b></a>
         {{/if}}  
-
-      </div>
-
-      <div class="navigationItems">
-        <a class="homeLink" href="/"> <b>Shopbox</b></a>
-
-        {{#if currentUser}}
-          <a class="navText-link-hover" href="/customers">Customers</a>
-          <a class="navText-link-hover" href="/books">Books</a>
-          <a class="navText-link-hover" href="/movies">Movies</a>
-          <a class="navText-link-hover" href="/purchases">Purchases</a>
-        {{/if}}
       </div>
 
     </nav>
