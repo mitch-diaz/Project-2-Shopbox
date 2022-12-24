@@ -1,6 +1,6 @@
 const User = require("../models/User.model");
 const router = require("express").Router();
-const bcrypt = require("bcrypt");
+const bcryptjs = require('bcryptjs');
 const mongoose = require("mongoose");
 const saltRounds = 10;
 
@@ -52,9 +52,9 @@ router.post("/signup", isLoggedOut, (req, res) => {
     }
 
     // if user is not found, create a new user - start with hashing the password
-    return bcrypt
+    return bcryptjs
       .genSalt(saltRounds)
-      .then((salt) => bcrypt.hash(password, salt))
+      .then((salt) => bcryptjs.hash(password, salt))
       .then((hashedPassword) => {
         // Create a user and save it in the database
         return User.create({
@@ -126,7 +126,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       }
 
       // If user is found based on the email, check if the inputted password matches the one saved in the database
-      bcrypt.compare(password, user.password).then((isSamePassword) => {
+      bcryptjs.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
           return res
             .status(400)
@@ -219,11 +219,11 @@ router.post('/change-password', (req, res, next)=>{
 
   User.findById(req.session.user._id)
   .then(resultFromDB => {
-     if (bcrypt.compareSync(req.body.oldpass, resultFromDB.password)) {
+     if (js.compareSync(req.body.oldpass, resultFromDB.password)) {
       const saltRounds = 10;
-      bcrypt
+      bcryptjs
       .genSalt(saltRounds)
-      .then(salt => bcrypt.hash(req.body.newpass, salt))
+      .then(salt => bcryptjs.hash(req.body.newpass, salt))
       .then(hashedPassword => {
         console.log(hashedPassword)
         User.findByIdAndUpdate(req.session.user._id, {

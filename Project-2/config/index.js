@@ -6,8 +6,6 @@ const express = require("express");
 const logger = require("morgan");
 
 
-const bcrypt = require('bcryptjs');
-
 // ℹ️ Needed when we deal with cookies (we will when dealing with authentication)
 // https://www.npmjs.com/package/cookie-parser
 const cookieParser = require("cookie-parser");
