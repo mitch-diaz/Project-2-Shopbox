@@ -1,14 +1,37 @@
-/*  */
-body {
-  padding: 10px 0 0 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #ffffff;
-  margin: 0;
-  /* max-width: 1600px; */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.navigationItems a {
-  padding-left: 10px;
+body {
+  padding: 5px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  margin: 0;
+}
+
+/* =========== Nav link styles =========== */
+
+nav {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* flex-direction: row; */
+  /* width: 100%; */
+  max-width: 1200px;
+  margin: 40px 40px;
+  /* align-items: flex-end; */
+}
+
+.nav-items {
+  /* display: flex;
+  justify-content: center;
+  width: 100%; */
+  margin: 0 auto;
+}
+
+.nav-items a {
+  /* padding-left: 10px; */
+  font-weight: 900;
+  font-size: 1.2rem;
 }
 
 a {
@@ -16,25 +39,7 @@ a {
   color: black;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  padding: 1rem;
-  max-width: 1800px;
-  margin-bottom: 40px;
-  align-items: flex-end;
-}
-
-nav, .loginItems, .navigationItems {
-  font-size: 1.2em;
-}
-
-.navItems-underline:hover {
-  text-decoration: underline;
-}
-
-.navText-link-hover:hover {
+.text-link-hover:hover {
   color: #005AD9;
   text-decoration: underline;
 }
@@ -57,9 +62,7 @@ nav, .loginItems, .navigationItems {
   margin-bottom: 100px;
 }
 
-.homeLink {
-  text-decoration: underline;
-}
+
 
 .hero-section-1 {
   display: flex;
@@ -79,12 +82,12 @@ nav, .loginItems, .navigationItems {
 }
 
 .heroText-section-1 h1 {
-  font-size: 5.9em;
+  font-size: 4rem;
   margin-bottom: 15px;
 }
 
 .heroText-section-1 p {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin-bottom: 50px;
   line-height: 24px;
 }
@@ -93,13 +96,13 @@ nav, .loginItems, .navigationItems {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 130px;
+  width: 140px;
   height: 50px;
   border-radius: 5px
 }
 
 .button {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   background-color: #006AFF;
 }
 
@@ -156,7 +159,7 @@ nav, .loginItems, .navigationItems {
 }
 
 .get-tools-h1 h1 {
-  font-size: 4em;
+  font-size: 4rem;
 }
 
 .services-container {
@@ -192,7 +195,7 @@ nav, .loginItems, .navigationItems {
 }
 
 .service-text-section h2 {
-  font-size: 2.1em;
+  font-size: 2.1rem;
   font-weight: lighter;
   padding-left: 25px;
   padding-right: 25px;
@@ -200,7 +203,7 @@ nav, .loginItems, .navigationItems {
 }
 
 .service-text-section p {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   line-height: 24px;
   padding-left: 25px;
   padding-right: 25px;
@@ -238,7 +241,7 @@ nav, .loginItems, .navigationItems {
 }
 
 .flex-contact-content-box h2 {
-  font-size: 3.9em;
+  font-size: 3.9rem;
 }
 
 .contact-links ul {
@@ -252,7 +255,7 @@ nav, .loginItems, .navigationItems {
 }
 
 .contact-links a {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   font-weight: 900;
   color: #006AFF;
 }
@@ -262,11 +265,11 @@ nav, .loginItems, .navigationItems {
 }
 
 .stay-in-touch h3 {
-  font-size: 2.2em;
+  font-size: 2.2rem;
 }
 
 .stay-in-touch p {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin: 20px 0 20px 40px;
   width: 800px;
 }
@@ -287,7 +290,7 @@ nav, .loginItems, .navigationItems {
   width: 6.1rem;
   background-color: #005AFF;
   color: white;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .privacy p {
@@ -338,7 +341,7 @@ footer h4, .link-list a {
 
 footer h4 {
   color: rgb(111, 111, 111);
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .social-media-container {
